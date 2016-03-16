@@ -16,7 +16,7 @@ $link = mysqli_connect($hostname, $username, $password);
 if (!$link) {
     die('Error connect: ' . mysqli_error($link));
 }
-echo 'Successfully connected' . "</br>";
+//echo 'Successfully connected' . "</br>";
 
 $voice = mysqli_select_db($link, $dbName);
 if (!$voice) {
