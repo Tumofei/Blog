@@ -3,6 +3,13 @@
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title> Список пользователей:</title>
+     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+     <style>
+         .weight {
+             width:20%;
+             margin:20px;
+         }
+     </style>
  </head>
  <body>
  <?php
@@ -16,12 +23,12 @@
 }
 
  ?>
-    <table border='1'>
-            <thead> Список пользователей: </thead>
+    <table class="table table-striped table-bordered table-hover table-condensed weight">
+        <h4 class="text-success" style="margin:20px"> Список пользователей: </h4>
             <tr>
                 <th>Имя</th>
                 <th>E-mail</th>
-                <th>Кол-во постов</th>
+                <th>Количество постов</th>
             </tr>
      <?php
 
