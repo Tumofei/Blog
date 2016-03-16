@@ -7,6 +7,7 @@
  </head>
  <body>
  <?php
+ $filename = 'local_params.php';
  if (file_exists($filename)) {
      $db = include('local_params.php');
      $hostname = $db['hostname'];
@@ -14,7 +15,7 @@
      $password = $db['password'];
      $dbName = $db['dbName'];
  } else {
-     echo "The file $filename does not exist";
+     die ("The file $filename does not exist");
  }
  $link = mysqli_connect($hostname, $username, $password);
  if (!$link) {
@@ -41,16 +42,14 @@
                 <th>Пост</th>
                 <th>Дата</th>
             </tr>
-    <?php        
-            while($row = mysqli_fetch_array($res))
-            echo
-            "<tr>
-                <td>" . $row[0] . "</td>
-                <td>" . $row[1] . "</td>
-                <td>" . $row[2] . "</td>
-            </tr>";
-
-          ?>
+    <?php
+    while($row = mysqli_fetch_array($res)): ?>
+        <tr>
+            <td> <?=$row[0]?> </td>
+            <td> <?=$row[1]?> </td>
+            <td> <?=$row[2]?> </td>
+        </tr>
+    <?php endwhile;?>
     </table>
 
  

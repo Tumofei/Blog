@@ -16,7 +16,7 @@
      $password = $db['password'];
      $dbName = $db['dbName'];
  } else {
-     echo "The file $filename does not exist";
+     die ("The file $filename does not exist");
  }
 
  $db = include('local_params.php');
@@ -52,16 +52,14 @@
             </tr>
      <?php
 
-            while($row = mysqli_fetch_array($res)){
-            echo
-            "<tr>
-                <td>" . $row[0] . "</td>
-                <td>" . $row[1] . "</td>
-                <td>" . $row[2] . "</td>
-            </tr>";
-            }
+            while($row = mysqli_fetch_array($res)): ?>
+            <tr>
+                <td>  <?=$row[0]?> </td>
+                <td>  <?=$row[1]?> </td>
+                <td> <?=$row[2]?> </td>
+            </tr>
+        <?php endwhile;?>
 
- ?>
     </table>
  </body>
 </html>
