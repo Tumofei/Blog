@@ -1,0 +1,12 @@
+CREATE TABLE users(
+id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name TEXT,
+email VARCHAR(200) UNIQUE
+);
+CREATE TABLE posts(
+id_users INTEGER,	
+name_post TEXT NOT NULL,
+content TEXT,
+date_create DATE NOT NULL
+);
+
