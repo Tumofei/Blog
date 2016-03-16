@@ -7,18 +7,21 @@
  </head>
  <body>
  <?php
- $link = mysqli_connect("localhost", "root", "");
+ $db = include('local_params.php');
+ $hostname = $db['hostname'];
+ $username = $db['username'];
+ $password = $db['password'];
+ $dbName = $db['dbName'];
+ $link = mysqli_connect($hostname, $username, $password);
  if (!$link) {
      die('Ошибка соединения: ' . mysqli_error($link));
  }
  echo 'Успешно соединились' . "</br>";
- 
- $voice = mysqli_select_db( $link, "hometask");
- if (!$voice) {
-    die('Не удалось соединиться : ' . mysqli_error($link));
- }
- 
 
+ $voice = mysqli_select_db($link, $dbName);
+ if (!$voice) {
+     die('Не удалось соединиться : ' . mysqli_error($link));
+ }
 
  $res =  mysqli_query($link, "SELECT posts.name_post, posts.content, posts.date_create FROM posts JOIN users ON posts.id_users = users.id WHERE users.name = \"First_user\";");
  if (!$res) {
