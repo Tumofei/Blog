@@ -7,6 +7,18 @@
  </head>
  <body>
  <?php
+ $filename = 'local_params.php';
+
+ if (file_exists($filename)) {
+     $db = include('local_params.php');
+     $hostname = $db['hostname'];
+     $username = $db['username'];
+     $password = $db['password'];
+     $dbName = $db['dbName'];
+ } else {
+     echo "The file $filename does not exist";
+ }
+
  $db = include('local_params.php');
  $hostname = $db['hostname'];
  $username = $db['username'];

@@ -7,11 +7,15 @@
  </head>
  <body>
  <?php
- $db = include('local_params.php');
- $hostname = $db['hostname'];
- $username = $db['username'];
- $password = $db['password'];
- $dbName = $db['dbName'];
+ if (file_exists($filename)) {
+     $db = include('local_params.php');
+     $hostname = $db['hostname'];
+     $username = $db['username'];
+     $password = $db['password'];
+     $dbName = $db['dbName'];
+ } else {
+     echo "The file $filename does not exist";
+ }
  $link = mysqli_connect($hostname, $username, $password);
  if (!$link) {
      die('Ошибка соединения: ' . mysqli_error($link));
