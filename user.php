@@ -46,7 +46,32 @@ class user
     }
 
     public static function getById($id){
+        $add = new connect();
+        $link=$add->connect();
 
-         return new user;
+        $result = mysqli_query($link,"SELECT id, name, email FROM users WHERE id = $id");
+        $row = mysqli_fetch_array($result);
+        $user = new user();
+        $user->id = $row[0];
+        $user->name = $row[1];
+        $user->email = $row[2];
+         return $user;
+    }
+
+    public static function getByAll(){
+        $add = new connect();
+        $link=$add->connect();
+        $result = mysqli_query($link,"SELECT id, name, email FROM users");
+        //$row = mysqli_fetch_array($result);
+        $users = array();
+        $i=1;
+        while ($row = mysqli_fetch_array($result)){
+            $users[$i] = new user();
+            $users[$i]->id = $row[0];
+            $users[$i]->name = $row[1];
+            $users[$i]->email = $row[2];
+            $i++;
+
+        }
     }
 }
