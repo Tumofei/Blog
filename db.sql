@@ -7,6 +7,7 @@ CREATE TABLE posts(
 id_users INTEGER,	
 name_post TEXT NOT NULL,
 content TEXT,
-date_create DATE NOT NULL
+date_create DATE NOT NULL,
+id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
 );
 
