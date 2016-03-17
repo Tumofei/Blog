@@ -73,5 +73,6 @@ class user
             $i++;
 
         }
+        return $users;
     }
 }
