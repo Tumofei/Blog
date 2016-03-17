@@ -1,9 +1,12 @@
 <?php
 require ('connect.php');
+require ('user.php');
 
-$name = trim($_REQUEST['name']);
-$email = trim($_REQUEST['email']);
-$res = mysqli_query($link, "INSERT INTO users (name, email) VALUES (\"$name\", \"$email\");");
+
+$new = new user();
+$new->saveUser();
+$result=$new->saveUser();
+$res = mysqli_query($link, $result);
 if (!$res) {
     die('Неверный запрос: ' . mysqli_error($link));}
 ?>
