@@ -32,6 +32,8 @@
 
 
  $user_name=trim($_REQUEST['user_name']);
+$mysql = new connect();
+  $link =$mysql->connect();
 
  $res =  mysqli_query($link, "SELECT posts.name_post, posts.content, posts.date_create FROM posts JOIN users ON posts.id_users = users.id WHERE users.name = \"$user_name\";");
  if (!$res) {

@@ -6,6 +6,8 @@
  * Date: 17.03.2016
  * Time: 10:00
  */
+require ('connect.php');
+
 class user
 {
     private $name;
@@ -28,18 +30,23 @@ class user
     }
 
 
-    public function saveUser()
+    public function save()
     {
-        $this->name = trim($_REQUEST['name']);
-        $this->email = trim($_REQUEST['email']);
+        $add = new connect();
+        $link=$add->connect();
         if ($this->id) {
 
-            $result = "UPDATE users SET name = \"$this->name\", email = \"$this->email\" WHERE id = $this->id;";
+            $result = mysqli_query($link,"UPDATE users SET name = \"$this->name\", email = \"$this->email\" WHERE id = $this->id;");
 
         } else {
-            $result =  "INSERT INTO users (name, email) VALUES (\"$this->name\", \"$this->email\");";
+            $result = mysqli_query($link, "INSERT INTO users (name, email) VALUES (\"$this->name\", \"$this->email\");");
         }
         return $result;
 
+    }
+
+    public static function getById($id){
+
+         return new user;
     }
 }

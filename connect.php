@@ -1,25 +1,35 @@
 <?php
-$filename = 'local_params.php';
+class connect {
+    private $hostname;
+    private $dbName;
+    private $username;
+    private $password;
 
-if (file_exists($filename)) {
-    $db = include('local_params.php');
-    $hostname = $db['hostname'];
-    $username = $db['username'];
-    $password = $db['password'];
-    $dbName = $db['dbName'];
-} else {
-    die ("The file $filename does not exist");
+
+   public function connect() {
+       $filename = 'local_params.php';
+       if (file_exists($filename)) {
+           $db = include('local_params.php');
+
+       } else {
+           die ("The file $filename does not exist");
+       }
+       $this->hostname = $db['hostname'];
+       $this->username = $db['username'];
+       $this->password = $db['password'];
+       $this->dbName = $db['dbName'];
+
+       $link = mysqli_connect($this->hostname, $this->username, $this->password);
+       if (!$link) {
+           die('Error connect: ' . mysqli_error($link));
+       }
+
+       $voice = mysqli_select_db($link, $this->dbName);
+       if (!$voice) {
+           die('Error select database : ' . mysqli_error($link));
+       }
+       return $link;
+}
 }
 
-
-$link = mysqli_connect($hostname, $username, $password);
-if (!$link) {
-    die('Error connect: ' . mysqli_error($link));
-}
-//echo 'Successfully connected' . "</br>";
-
-$voice = mysqli_select_db($link, $dbName);
-if (!$voice) {
-    die('Error select database : ' . mysqli_error($link));
-}
 ?>

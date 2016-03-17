@@ -16,8 +16,9 @@
 
  require ('connect.php');
 
-
- $res =  mysqli_query($link, "SELECT users.name, users.email,  COUNT(id_users) FROM posts RIGHT OUTER JOIN users ON users.id = posts.id_users GROUP BY name;");
+$mysql = new connect();
+$link = $mysql->connect();
+$res =  mysqli_query($link, "SELECT users.name, users.email,  COUNT(id_users) FROM posts RIGHT OUTER JOIN users ON users.id = posts.id_users GROUP BY name;");
  if (!$res) {
     die('Invalid query: ' . mysqli_error($link));
 }
