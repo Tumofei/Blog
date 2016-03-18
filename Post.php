@@ -29,6 +29,7 @@ class Post
     $post->id_users = $row[4];
     return $post;
     }
+
     public static function getAll(){
         $add = new Connect();
         $link=$add->connect();
@@ -51,7 +52,7 @@ class Post
         $add = new Connect();
         $link=$add->connect();
 
-        $result = mysqli_query($link,"SELECT posts.name_post, posts.content, posts.date_create FROM posts JOIN users ON posts.id_users = users.id WHERE users.name = \\"$user_name\\";");
+        $result = mysqli_query($link,"SELECT posts.name_post, posts.content, posts.date_create FROM posts JOIN users ON posts.id_users = users.id WHERE users.id = $id");
         $posts = array();
         $i=0;
         while ($row = mysqli_fetch_array($result)){
