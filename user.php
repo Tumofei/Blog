@@ -8,26 +8,21 @@
  */
 require ('connect.php');
 
-class user
+class User
 {
     private $name;
     private $email;
     private $id;
 
-    public function setEmail($email)
+    public function __set($prop, $val)
     {
-        $this->email = $email;
+        $this->$prop = $val;
+    }
+    public function __get($prop)
+    {
+        return $this->$prop;
     }
 
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
 
 
     public function save()
@@ -46,27 +41,27 @@ class user
     }
 
     public static function getById($id){
-        $add = new connect();
+        $add = new Connect();
         $link=$add->connect();
 
         $result = mysqli_query($link,"SELECT id, name, email FROM users WHERE id = $id");
         $row = mysqli_fetch_array($result);
-        $user = new user();
+        $user = new User();
         $user->id = $row[0];
         $user->name = $row[1];
         $user->email = $row[2];
          return $user;
     }
 
-    public static function getByAll(){
-        $add = new connect();
+    public static function getAll(){
+        $add = new Connect();
         $link=$add->connect();
         $result = mysqli_query($link,"SELECT id, name, email FROM users");
         //$row = mysqli_fetch_array($result);
         $users = array();
         $i=1;
         while ($row = mysqli_fetch_array($result)){
-            $users[$i] = new user();
+            $users[$i] = new User();
             $users[$i]->id = $row[0];
             $users[$i]->name = $row[1];
             $users[$i]->email = $row[2];
@@ -75,4 +70,14 @@ class user
         }
         return $users;
     }
+    public function getPostCount($id){
+        $add = new Connect();
+        $link=$add->connect();
+        $result = mysqli_query($link, "SELECT COUNT(id_users) FROM posts WHERE id_users=$id  GROUP BY id_users;");
+        $row = mysqli_fetch_array($result);
+        $count = $row[1];
+        return $count;
+
+    }
+
 }

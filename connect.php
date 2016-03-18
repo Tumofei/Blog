@@ -1,5 +1,5 @@
 <?php
-class connect {
+class Connect {
     private $hostname;
     private $dbName;
     private $username;
