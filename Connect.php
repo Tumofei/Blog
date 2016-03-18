@@ -31,6 +31,6 @@ class Connect {
         return $link;
     }
 }
-//testtestest
+
 
 ?>
