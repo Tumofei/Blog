@@ -6,7 +6,8 @@
  * Date: 17.03.2016
  * Time: 10:00
  */
-require ('connect.php');
+include_once ('Connect.php');
+include_once('Post.php');
 
 class User
 {
@@ -23,7 +24,13 @@ class User
         return $this->$prop;
     }
 
-
+    protected function initUser($row){
+        $user = new User();
+        $user->id = $row[0];
+        $user->name = $row[1];
+        $user->email = $row[2];
+        return $user;
+    }
 
     public function save()
     {
@@ -46,10 +53,7 @@ class User
 
         $result = mysqli_query($link,"SELECT id, name, email FROM users WHERE id = $id");
         $row = mysqli_fetch_array($result);
-        $user = new User();
-        $user->id = $row[0];
-        $user->name = $row[1];
-        $user->email = $row[2];
+        $user = self::initUser($row);
          return $user;
     }
 
@@ -61,23 +65,36 @@ class User
         $users = array();
         $i=1;
         while ($row = mysqli_fetch_array($result)){
-            $users[$i] = new User();
-            $users[$i]->id = $row[0];
-            $users[$i]->name = $row[1];
-            $users[$i]->email = $row[2];
+            $users[$i] = self::initUser($row);
             $i++;
 
         }
         return $users;
     }
-    public function getPostCount($id){
+    public function getPostCount(){
         $add = new Connect();
         $link=$add->connect();
-        $result = mysqli_query($link, "SELECT COUNT(id_users) FROM posts WHERE id_users=$id  GROUP BY id_users;");
+        $result = mysqli_query($link, "SELECT COUNT(id_users) FROM posts WHERE id_users=$this->id  GROUP BY id_users;");
         $row = mysqli_fetch_array($result);
-        $count = $row[1];
+        $count = $row[0];
         return $count;
 
     }
+    public static function getByEmail($email){
+        $add = new Connect();
+        $link=$add->connect();
 
+        $result = mysqli_query($link,"SELECT id, name, email FROM users WHERE email = \"$email\"");
+        $row = mysqli_fetch_array($result);
+        $user = self::initUser($row);
+        return $user;
+    }
+
+
+    public function getUserPosts()
+    {
+
+        $posts = Post::getByUserId($this->id);
+        return $posts;
+    }
 }

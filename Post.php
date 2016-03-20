@@ -6,6 +6,8 @@
  * Date: 18.03.2016
  * Time: 9:42
  */
+
+include_once ('Connect.php');
 class Post
 {
  private $id_users;
@@ -14,6 +16,26 @@ class Post
  private $date_create;
  private $id;
 
+    public function __set($prop, $val)
+    {
+        $this->$prop = $val;
+    }
+    public function __get($prop)
+    {
+        return $this->$prop;
+    }
+
+
+    protected function initPost($row){
+        $post = new Post();
+        $post->id = $row[0];
+        $post->name_post = $row[1];
+        $post->content = $row[2];
+        $post->date_create = $row[3];
+        $post->id_users = $row[4];
+        return $post;
+    }
+
 
     public static function getById($id){
     $add = new Connect();
@@ -21,12 +43,7 @@ class Post
 
     $result = mysqli_query($link,"SELECT id, name_post, content, date_create, id_users FROM posts WHERE id = $id");
     $row = mysqli_fetch_array($result);
-    $post = new Post();
-    $post->id = $row[0];
-    $post->name_post = $row[1];
-    $post->content = $row[2];
-    $post->date_create = $row[3];
-    $post->id_users = $row[4];
+    $post = self::initPost($row);
     return $post;
     }
 
@@ -37,12 +54,7 @@ class Post
         $posts = array();
         $i=0;
         while ($row = mysqli_fetch_array($result)){
-            $posts[$i] = new Post();
-            $posts[$i]->id = $row[0];
-            $posts[$i]->name_post = $row[1];
-            $posts[$i]->content = $row[2];
-            $posts[$i]->date_create = $row[3];
-            $posts[$i]->id_users = $row[4];
+            $posts[$i] = self::initPost($row);
             $i++;
 
         }
@@ -52,14 +64,33 @@ class Post
         $add = new Connect();
         $link=$add->connect();
 
-        $result = mysqli_query($link,"SELECT posts.name_post, posts.content, posts.date_create FROM posts JOIN users ON posts.id_users = users.id WHERE users.id = $id");
+        $result = mysqli_query($link,"SELECT id, name_post, content, date_create, id_users FROM posts WHERE id_users = $id");
         $posts = array();
         $i=0;
         while ($row = mysqli_fetch_array($result)){
-            $posts[$i]= $row[0];
+            $posts[$i]= self::initPost($row);
             $i++;
 
         }
         return $posts;
     }
+    /*public static function getByUserEmail($email){
+        $add = new Connect();
+        $link=$add->connect();
+
+        $result = mysqli_query($link,"SELECT posts.id, posts.name_post, posts.content, posts.date_create, post.id_users FROM posts JOIN users ON posts.id_users = users.id WHERE users.email = $email");
+        $posts = array();
+        $i=0;
+        while ($row = mysqli_fetch_array($result)){
+            $posts[$i]= self::initPost($row);
+            $i++;
+
+        }
+        return $posts;
+
+    }*/
+
+
+
+
 }

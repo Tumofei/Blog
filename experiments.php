@@ -13,7 +13,18 @@
     </style>
 </head>
 <body>
-
+<div class="weight">
+    <div class="form-group" >
+        <form action="experiments.php" method="post" role="form">
+            <fieldset>
+                <label for="name">Email:</label><br/>
+                <input type="text" name="email" size="30" class="form-control" placeholder="Введите email пользователя"><br/>
+                <button type="submit" name="submit" class="btn btn-block btn-success">Найти пользователя<br/>
+            </fieldset>
+            <br/>
+        </form>
+    </div>
+</div>
 
 <?php
 require ('User.php');
