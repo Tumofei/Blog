@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title> Список пользователей:</title>
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .weight {
             width:20%;
@@ -21,11 +21,11 @@
         <th>Количество постов</th>
     </tr>
     <?php
-    require ('User.php');
+    require ('../Models/User.php');
     $arr_users = User::getAll();
     foreach ($arr_users as $users):?>
         <tr>
-            <td> <a href="/user_posts.php?email=<?=$users->email?>"> <?=$users->name?></a> </td>
+            <td> <a href="../Views/user_posts.php?email=<?=$users->email?>"> <?=$users->name?></a> </td>
             <td>  <?=$users->email?> </td>
             <td> <?=$users->getPostCount();?> </td>
         </tr>

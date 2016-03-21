@@ -7,9 +7,9 @@ class Connect {
 
 
     public function connect() {
-        $filename = 'local_params.php';
+        $filename = '../Configs/local_params.php';
         if (file_exists($filename)) {
-            $db = include('local_params.php');
+            $db = include('../Configs/local_params.php');
 
         } else {
             die ("The file $filename does not exist");

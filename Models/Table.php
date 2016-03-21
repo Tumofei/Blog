@@ -7,7 +7,7 @@
  * Time: 4:27
  */
 
-include_once ('Connect.php');
+include_once ('../Controllers/Connect.php');
 include_once('Post.php');
 include_once('User.php');
 

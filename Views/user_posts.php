@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title> Посты пользователя </title>
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .weight {
             width:20%;
@@ -16,7 +16,7 @@
 
 
 <?php
-require ('User.php');
+require ('../Models/User.php');
 
 
 
@@ -25,8 +25,9 @@ require ('User.php');
 $email=trim($_REQUEST['email']);
 
 $check = User::checkEmail($email);
-if ($check === TRUE){
+if ($check === FALSE){
     die("Данного пользователя нету в Базе данных");
+
 
 } else {
 $user = User::getByEmail($email);

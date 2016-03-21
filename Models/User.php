@@ -6,7 +6,7 @@
  * Date: 17.03.2016
  * Time: 10:00
  */
-include_once ('Connect.php');
+include_once ('../Controllers/Connect.php');
 include_once('Post.php');
 include_once ('Table.php');
 
@@ -77,10 +77,10 @@ class User extends Table
         $result = mysqli_query($link,"SELECT id, name, email FROM users WHERE email = \"$email\"");
         if(mysqli_num_rows($result)==0){
             //echo "Такого пользователя нет";
-            return $check = true;
+            return $check = false;
                     }else{
             //echo "Такой ползователь есть";
-            return $check = false;
+            return $check = true;
         }
     }
 
