@@ -71,6 +71,18 @@ class User extends Table
         return $user;
     }
 
+    public static function checkEmail($email){
+        $add = new Connect();
+        $link=$add->connect();
+        $result = mysqli_query($link,"SELECT id, name, email FROM users WHERE email = \"$email\"");
+        if(mysqli_num_rows($result)==0){
+            //echo "Такого пользователя нет";
+            return $check = true;
+                    }else{
+            //echo "Такой ползователь есть";
+            return $check = false;
+        }
+    }
 
     public function getUserPosts()
     {
