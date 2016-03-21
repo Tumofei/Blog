@@ -35,10 +35,10 @@ class Table
         $result = mysqli_query($link,"SELECT * FROM $table");
 
         $objects = array();
-        $i=1;
+
         while ($row = mysqli_fetch_array($result)){
-            $objects[$i] = static::init($row);
-            $i++;
+            $objects[] = static::init($row);
+
 
         }
         return $objects;
