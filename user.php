@@ -15,7 +15,7 @@ class User extends Table
     private $name;
     private $email;
     private $id;
-    const TABLE = 'users';
+
 
     public function __set($prop, $val)
     {
