@@ -16,7 +16,7 @@ class Post extends Table
  private $content;
  private $date_create;
  private $id;
- const TABLE= 'posts';
+
     public function __set($prop, $val)
     {
         $this->$prop = $val;
@@ -41,7 +41,7 @@ class Post extends Table
     }
 
 
-   
+
 
     public static function getByUserId($id){
         $add = new Connect();
