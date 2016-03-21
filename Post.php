@@ -41,13 +41,7 @@ class Post extends Table
     }
 
 
-    public static function getById($id){
-        Table::getById(TABLE, $id);
-    }
-
-    public static function getAll(){
-        Table::getAll(TABLE);
-    }
+   
 
     public static function getByUserId($id){
         $add = new Connect();
