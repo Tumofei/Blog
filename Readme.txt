@@ -1,7 +1,9 @@
 index.html            Карта сайта
 user_list.php         Выводит список пользователей и количество постов пользователя из базы данных 
 user_posts.php        Выводит список постов пользователя 
-user.php              Класс User
+user_posts.html       Форма поиска по email
+User.php              Класс User
+Post.php              Класс Post
 login.html            Форма для добавления пользователя
 login.php             Скрипт для добавления пользователя
 db.sql                Сreate таблицы 
