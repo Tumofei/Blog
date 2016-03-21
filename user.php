@@ -8,12 +8,14 @@
  */
 include_once ('Connect.php');
 include_once('Post.php');
+include_once ('Table.php');
 
-class User
+class User extends Table
 {
     private $name;
     private $email;
     private $id;
+    const TABLE = 'users';
 
     public function __set($prop, $val)
     {
@@ -24,7 +26,7 @@ class User
         return $this->$prop;
     }
 
-    protected function initUser($row){
+    public static function init($row){
         $user = new User();
         $user->id = $row[0];
         $user->name = $row[1];
@@ -46,31 +48,10 @@ class User
         return $result;
 
     }
-
-    public static function getById($id){
-        $add = new Connect();
-        $link=$add->connect();
-
-        $result = mysqli_query($link,"SELECT id, name, email FROM users WHERE id = $id");
-        $row = mysqli_fetch_array($result);
-        $user = self::initUser($row);
-         return $user;
+    public static function getName(){
+        return 'users';
     }
 
-    public static function getAll(){
-        $add = new Connect();
-        $link=$add->connect();
-        $result = mysqli_query($link,"SELECT id, name, email FROM users");
-        //$row = mysqli_fetch_array($result);
-        $users = array();
-        $i=1;
-        while ($row = mysqli_fetch_array($result)){
-            $users[$i] = self::initUser($row);
-            $i++;
-
-        }
-        return $users;
-    }
     public function getPostCount(){
         $add = new Connect();
         $link=$add->connect();
@@ -86,7 +67,7 @@ class User
 
         $result = mysqli_query($link,"SELECT id, name, email FROM users WHERE email = \"$email\"");
         $row = mysqli_fetch_array($result);
-        $user = self::initUser($row);
+        $user = User::init($row);
         return $user;
     }
 
