@@ -20,11 +20,17 @@ require ('User.php');
 
 
 
+
+
 $email=trim($_REQUEST['email']);
 
+$check = User::checkEmail($email);
+if ($check === TRUE){
+    die("Данного пользователя нету в Базе данных");
+
+} else {
 $user = User::getByEmail($email);
 $posts_users = $user->getUserPosts();
-
 
 ?>
 
@@ -42,7 +48,7 @@ $posts_users = $user->getUserPosts();
             <td> <?=$posts->content?> </td>
             <td> <?=$posts->date_create?></td>
         </tr>
-    <?php endforeach;?>
+    <?php endforeach; }?>
 </table>
 
 
