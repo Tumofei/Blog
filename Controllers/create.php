@@ -6,8 +6,9 @@ $name = trim($_REQUEST['name']);
 $email = trim($_REQUEST['email']);
 $check = User::checkEmail($email);
 if ($check === TRUE){
-    die("This user already exists in the database");
-
+    //die("This user already exists in the database");
+    header('Refresh: 3; url=../Views/create.html');
+    echo 'This user already exists in the database. After 3 seconds. you will be redirected.';
 
 } else {
 
@@ -15,6 +16,6 @@ if ($check === TRUE){
     $user->__set('name', $name);
     $user->__set('email', $email);
     $user->save();
-    //echo "User added";
-    header('Refresh: 0, url=/create.html');
+    header('Refresh: 2, url=../Views/create.html');
+    echo "User added";
 }

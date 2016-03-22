@@ -26,8 +26,9 @@ $email=trim($_REQUEST['email']);
 
 $check = User::checkEmail($email);
 if ($check === FALSE){
-    die("Данного пользователя нету в Базе данных");
-
+    //die("Данного пользователя нету в Базе данных");
+    header('Refresh: 3; url=../Views/create.html');
+    echo 'This user is not in the database. After 3 seconds. you will be redirected.';
 
 } else {
 $user = User::getByEmail($email);
@@ -51,7 +52,9 @@ $posts_users = $user->getUserPosts();
         </tr>
     <?php endforeach; }?>
 </table>
-
+<div class="weight">
+    <a href="/index.html" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На главную </a>
+</div>
 
 
 </body>

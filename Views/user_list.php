@@ -32,5 +32,8 @@
     <?php endforeach;?>
 
 </table>
+<div class="weight">
+    <a href="/index.html" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На главную </a>
+</div>
 </body>
 </html>
