@@ -44,7 +44,7 @@
 
 <div class="weight">
     <div class="form-group" >
-        <form action="../Controllers/create_user.php" class="valida" id="form"  method="post" role="form">
+        <form action="" class="valida" id="form"  method="post" role="form">
             <fieldset>
                 <label for="name">Имя:</label><br/>
                 <input type="text"  name="name" id="name" placeholder="Введите имя" class="form-control"
@@ -52,15 +52,18 @@
                 <label for="email">Email:</label><br/>
                 <input type="text" name="email" id="email" placeholder="Введите email"  class="form-control"
                        required="true" filter="email" data-invalid="Must be a valid email address"   size="30" ><br/>
-                <button type="submit" name="submit" class="btn btn-block btn-success">Добавить пользователя<br/></button>
+                <button type="submit" name="submit" id="submit" class="btn btn-block btn-success">Добавить пользователя<br/></button>
 
             </fieldset>
+
         </form>
     </div>
 
     <div>
         <a href="/index.html" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На главную </a>
     </div>
+
+    <div id="results"></div>
 </div>
 
 
@@ -69,7 +72,29 @@
 <script type="text/javascript" >
     $(document).ready(function(){
         $('#form').valida();
+
+
+
+    }); </script>
+<script type="text/javascript" >
+    $(document).ready(function(){
+        $('#submit').click(function (e) {
+            e.preventDefault();
+            var name = $('#name').val();
+            name = encodeURIComponent(name);
+            var email = $('#email').val();
+            email = encodeURIComponent(email);
+
+
+            $('#results').load("../Controllers/create_user.php?name="+name+"&email="+ email );
+
+
+
+        });
     });
+
+
+
 </script>
 </body>
 </html>
