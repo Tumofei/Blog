@@ -25,6 +25,14 @@ class Post extends Table
     {
         return $this->$prop;
     }
+    public function save()
+    {
+        $add = new Connect();
+        $link = $add->connect();
+
+        $result = mysqli_query($link,"INSERT INTO posts (id_users, name_post, content, date_create) VALUES (\"$this->id_users\" , \"$this->name_post\",\"$this->content\", CURDATE());");
+        return $result;
+    }
 
     public static function getName(){
         return 'posts';

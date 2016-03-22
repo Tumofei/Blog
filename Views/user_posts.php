@@ -24,13 +24,7 @@ require ('../Models/User.php');
 
 $email=trim($_REQUEST['email']);
 
-$check = User::checkEmail($email);
-if ($check === FALSE){
-    //die("Данного пользователя нету в Базе данных");
-    header('Refresh: 3; url=../Views/create.html');
-    echo 'This user is not in the database. After 3 seconds. you will be redirected.';
 
-} else {
 $user = User::getByEmail($email);
 $posts_users = $user->getUserPosts();
 
@@ -44,15 +38,23 @@ $posts_users = $user->getUserPosts();
         <th>Дата</th>
     </tr>
     <?php
+    if (count($posts_users)==0): ?>
+        <tr>
+            <td colspan="3"><?='This  user  has  no  posts'?></td>
+
+        </tr>
+
+    <?php endif;
     foreach ($posts_users as $posts): ?>
         <tr>
             <td><?=$posts->name_post?></td>
             <td> <?=$posts->content?> </td>
             <td> <?=$posts->date_create?></td>
         </tr>
-    <?php endforeach; }?>
+    <?php endforeach;?>
 </table>
 <div class="weight">
+    <a href="createsend_post.php?id=<?= $user->id?>" class="btn  btn-success">Добавить пост</a>
     <a href="/index.html" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На главную </a>
 </div>
 
