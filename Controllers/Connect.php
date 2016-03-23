@@ -1,20 +1,23 @@
 <?php
-class Connect {
+
+class Connect
+{
     private $hostname;
     private $dbName;
     private $username;
     private $password;
 
 
-    public function connect() {
+    public function connect()
+    {
         $filename = '../Configs/local_params.php';
         if (file_exists($filename)) :
             $db = include('../Configs/local_params.php');
 
-         else : ?>
+        else : ?>
 
             <script>
-            document.location.href = '../error.php?error_name=The file <?=$filename?> does not exist';
+                document.location.href = '../error.php?error_name=The file <?=$filename?> does not exist';
             </script>
 
         <?php endif;

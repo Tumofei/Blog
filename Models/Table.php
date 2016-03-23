@@ -7,7 +7,7 @@
  * Time: 4:27
  */
 
-include_once ('../Controllers/Connect.php');
+include_once('../Controllers/Connect.php');
 include_once('Post.php');
 include_once('User.php');
 
@@ -16,27 +16,29 @@ class Table
     public $table;
 
 
-    public static function getById($id){
+    public static function getById($id)
+    {
         $table = static::getName();
         $add = new Connect();
-        $link=$add->connect();
+        $link = $add->connect();
 
-        $result = mysqli_query($link,"SELECT * FROM $table WHERE id = $id");
+        $result = mysqli_query($link, "SELECT * FROM $table WHERE id = $id");
         $row = mysqli_fetch_array($result);
         $object = static::init($row);
         return $object;
     }
 
-    public static function getAll(){
+    public static function getAll()
+    {
 
         $table = static::getName();
         $add = new Connect();
-        $link=$add->connect();
-        $result = mysqli_query($link,"SELECT * FROM $table");
+        $link = $add->connect();
+        $result = mysqli_query($link, "SELECT * FROM $table");
 
         $objects = array();
 
-        while ($row = mysqli_fetch_array($result)){
+        while ($row = mysqli_fetch_array($result)) {
             $objects[] = static::init($row);
 
 

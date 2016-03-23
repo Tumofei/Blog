@@ -1,6 +1,6 @@
 <?php
-include_once ('../Models/Post.php');
-include_once ('../Models/User.php');
+include_once('../Models/Post.php');
+include_once('../Models/User.php');
 
 $id = trim($_REQUEST['id']);
 $name_post = trim($_REQUEST['name_post']);

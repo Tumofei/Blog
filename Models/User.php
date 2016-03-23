@@ -6,9 +6,9 @@
  * Date: 17.03.2016
  * Time: 10:00
  */
-include_once ('../Controllers/Connect.php');
+include_once('../Controllers/Connect.php');
 include_once('Post.php');
-include_once ('Table.php');
+include_once('Table.php');
 
 class User extends Table
 {
@@ -21,12 +21,14 @@ class User extends Table
     {
         $this->$prop = $val;
     }
+
     public function __get($prop)
     {
         return $this->$prop;
     }
 
-    public static function init($row){
+    public static function init($row)
+    {
         $user = new User();
         $user->id = $row[0];
         $user->name = $row[1];
@@ -37,10 +39,10 @@ class User extends Table
     public function save()
     {
         $add = new connect();
-        $link=$add->connect();
+        $link = $add->connect();
         if ($this->id) {
 
-            $result = mysqli_query($link,"UPDATE users SET name = \"$this->name\", email = \"$this->email\" WHERE id = $this->id;");
+            $result = mysqli_query($link, "UPDATE users SET name = \"$this->name\", email = \"$this->email\" WHERE id = $this->id;");
 
         } else {
             $result = mysqli_query($link, "INSERT INTO users (name, email) VALUES (\"$this->name\", \"$this->email\");");
@@ -48,37 +50,43 @@ class User extends Table
         return $result;
 
     }
-    public static function getName(){
+
+    public static function getName()
+    {
         return 'users';
     }
 
-    public function getPostCount(){
+    public function getPostCount()
+    {
         $add = new Connect();
-        $link=$add->connect();
+        $link = $add->connect();
         $result = mysqli_query($link, "SELECT COUNT(id_users) FROM posts WHERE id_users=$this->id  GROUP BY id_users;");
         $row = mysqli_fetch_array($result);
         $count = $row[0];
         return $count;
 
     }
-    public static function getByEmail($email){
-        $add = new Connect();
-        $link=$add->connect();
 
-        $result = mysqli_query($link,"SELECT id, name, email FROM users WHERE email = \"$email\"");
+    public static function getByEmail($email)
+    {
+        $add = new Connect();
+        $link = $add->connect();
+
+        $result = mysqli_query($link, "SELECT id, name, email FROM users WHERE email = \"$email\"");
         $row = mysqli_fetch_array($result);
         $user = User::init($row);
         return $user;
     }
 
-    public static function checkEmail($email){
+    public static function checkEmail($email)
+    {
         $add = new Connect();
-        $link=$add->connect();
-        $result = mysqli_query($link,"SELECT id, name, email FROM users WHERE email = \"$email\"");
-        if(mysqli_num_rows($result)==0){
+        $link = $add->connect();
+        $result = mysqli_query($link, "SELECT id, name, email FROM users WHERE email = \"$email\"");
+        if (mysqli_num_rows($result) == 0) {
             //echo "Такого пользователя нет";
             return $check = false;
-                    }else{
+        } else {
             //echo "Такой ползователь есть";
             return $check = true;
         }

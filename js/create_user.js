@@ -1,15 +1,26 @@
 /**
  * Created by Timofei on 23.03.2016.
  */
-$(document).ready(function(){
-    $('#submit').click(function (e) {
+jQuery(function ($) {
+    $('#form').submit(function (e) {
         e.preventDefault();
-        var name = $('#name').val();
-        name = encodeURIComponent(name);
-        var email = $('#email').val();
-        email = encodeURIComponent(email);
-
-
-        $('#results').load("../Controllers/create_user.php?name="+name+"&email="+ email );
+        call();
     });
 });
+
+
+function call() {
+    var data = $('#form').serialize();
+    $.post('../Controllers/create_user.php', data, function (response) {
+        var data = JSON.parse(response);
+        if (data.result == true) {
+            //email занят
+            $('#results').empty();
+            $('#results').append('Введённый email занят!');
+            setTimeout('document.location.href="../Views/create_user.html";', 1500);
+        } else {
+            //свободен
+            document.location.href = '../Views/user_posts.php?email=' + data.email;
+        }
+    });
+}

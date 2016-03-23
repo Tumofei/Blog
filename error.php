@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Error </title>
     <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
     <style>
-        .error-template {padding: 40px 15px;text-align: center;}
-        .error-actions {margin-top:15px;margin-bottom:15px;}
-        .error-actions .btn { margin-right:10px; }
+        .error-template {
+            padding: 40px 15px;
+            text-align: center;
+        }
+
+        .error-actions {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .error-actions .btn {
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -24,10 +34,11 @@ $error_name = trim($_REQUEST['error_name']);
                 <h1> Oops!</h1>
 
                 <div class="error-details">
-                    <h3> Something went wrong, the error is: <?=$error_name?> </h3>
+                    <h3> Something went wrong, the error is: <?= $error_name ?> </h3>
                 </div>
                 <div class="error-actions">
-                    <a href="/index.html" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На главную </a>
+                    <a href="/index.html" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На
+                        главную </a>
                 </div>
             </div>
         </div>
@@ -36,7 +47,6 @@ $error_name = trim($_REQUEST['error_name']);
 
 </body>
 </html>
-
 
 
 <?php
