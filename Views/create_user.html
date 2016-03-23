@@ -7,7 +7,7 @@
     <script type="text/javascript" src="../js/valida.2.1.6.js" ></script>
     <style>
         .weight {
-            width:25%;
+
             margin:20px;
         }
         .at-error {
@@ -41,29 +41,40 @@
 
 </head>
 <body>
+<div class="container">
+    <div class="row">
+        <div class="well col-lg-6 col-lg-offset-3">
 
-<div class="weight">
-    <div class="form-group" >
-        <form action="" class="valida" id="form"  method="post" role="form">
-            <fieldset>
-                <label for="name">Имя:</label><br/>
-                <input type="text"  name="name" id="name" placeholder="Введите имя" class="form-control"
-                       required="true" ><br/>
-                <label for="email">Email:</label><br/>
-                <input type="text" name="email" id="email" placeholder="Введите email"  class="form-control"
-                       required="true" filter="email" data-invalid="Must be a valid email address"   size="30" ><br/>
-                <button type="submit" name="submit" id="submit" class="btn btn-block btn-success">Добавить пользователя<br/></button>
+             <!-- center page------------------->
+                <div class="weight">
+                <div class="form-group" >
+                    <form action="" class="valida" id="form"  method="post" role="form">
+                        <fieldset>
+                            <label for="name">Имя:</label><br/>
+                            <input type="text"  name="name" id="name" placeholder="Введите имя" class="form-control"
+                                   required="true" ><br/>
+                            <label for="email">Email:</label><br/>
+                            <input type="text" name="email" id="email" placeholder="Введите email"  class="form-control"
+                                   required="true" filter="email" data-invalid="Must be a valid email address"   size="30" ><br/>
+                            <button type="submit" name="submit" id="submit" class="btn btn-block btn-success">Добавить пользователя<br/></button>
 
-            </fieldset>
+                        </fieldset>
 
-        </form>
+                    </form>
+                </div>
+
+                <div>
+                    <a href="/index.html" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На главную </a>
+                </div>
+
+                <div id="results"></div>
+
+             <!-- center page------------------->
+            </div>
+        </div>
     </div>
 
-    <div>
-        <a href="/index.html" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На главную </a>
-    </div>
 
-    <div id="results"></div>
 </div>
 
 

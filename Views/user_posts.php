@@ -6,7 +6,7 @@
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .weight {
-            width:20%;
+            width:95%;
             margin:20px;
         }
 
@@ -29,6 +29,11 @@ $user = User::getByEmail($email);
 $posts_users = $user->getUserPosts();
 
 ?>
+
+<div class="container">
+    <div class="row">
+        <div class="well col-lg-6 col-lg-offset-3">
+            <!-- center page------------------->
 
 <table class="table table-striped table-bordered table-hover table-condensed weight">
     <h4 class="text-success" style="margin:20px"> Список постов <?=$user->name?> : </h4>
@@ -57,7 +62,10 @@ $posts_users = $user->getUserPosts();
     <a href="createsend_post.php?id=<?= $user->id?>" class="btn  btn-success">Добавить пост</a>
     <a href="/index.html" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На главную </a>
 </div>
-
+            <!-- center page------------------->
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

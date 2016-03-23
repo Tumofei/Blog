@@ -6,13 +6,17 @@
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .weight {
-            width:20%;
+            width:95%;
             margin:20px;
         }
     </style>
 </head>
 <body>
+<div class="container">
+    <div class="row">
+        <div class="well col-lg-6 col-lg-offset-3">
 
+            <!-- center page------------------->
 <table class="table table-striped table-bordered table-hover table-condensed weight">
     <h4 class="text-success" style="margin:20px"> Список пользователей: </h4>
     <tr>
@@ -35,5 +39,11 @@
 <div class="weight">
     <a href="/index.html" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На главную </a>
 </div>
+            <!-- center page------------------->
+        </div>
+    </div>
+</div>
 </body>
+
+
 </html>

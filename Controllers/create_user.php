@@ -18,6 +18,9 @@ if ($check === TRUE){
     $user->__set('name', $name);
     $user->__set('email', $email);
     $user->save();
-    header('Refresh: 2, url=../Views/create_user.html');
-    echo "User added";
-}
+    //header('Refresh: 2, url=../Views/create_user.html');
+    echo "User added";?>
+<script>
+    document.location.href = '../Views/create_user.html';
+</script>
+<?php } ?>
