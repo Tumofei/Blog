@@ -21,6 +21,6 @@ if ($check === TRUE){
     //header('Refresh: 2, url=../Views/create_user.html');
     echo "User added";?>
 <script>
-    document.location.href = '../Views/create_user.html';
+    document.location.href = '../Views/user_posts.php?email=<?=$email?>';
 </script>
 <?php } ?>
