@@ -5,38 +5,8 @@
     <title>Добавление поста</title>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript" src="../js/valida.2.1.6.js" ></script>
-    <style>
-        .weight {
+    <link href="../bootstrap/css/view.css" rel="stylesheet">
 
-            margin:20px;
-        }
-        .at-error {
-            /* placed on a error labels */
-            color: #A94442;
-            margin: 6px 0;
-        }
-        .at-warning {
-            /* placed on a warning (invalid) labels */
-            color: red;
-            margin: 6px 0;
-        }
-        .at-invalid {
-            /* placed on a invalid fields (which do not match with their filters or masks) */
-        }
-        .at-required {
-            /* placed on a required fields (which are not filled) */
-        }
-        .at-description {
-            /* placed on description paragrapher, right after TEXTAREA fields. */
-        }
-        .at-description > span {
-            /* into description paragrapher, right after TEXTAREA fields there are 2 span TAGs. */
-        }
-        .at-required-highlight {
-            /* highlight required form fields */
-            color: red;
-        }
-    </style>
 
 
 </head>
@@ -79,10 +49,6 @@
 
 <script type="text/javascript" src="../js/jquery-2.2.2.min.js"></script>
 <script type="text/javascript" src="../js/valida.2.1.6.js" ></script>
-<script type="text/javascript" >
-    $(document).ready(function(){
-        $('#form').valida();
-    });
-</script>
+<script type="text/javascript" src="../js/validation.js" ></script>
 </body>
 </html>

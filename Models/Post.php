@@ -11,20 +11,23 @@ include_once ('../Controllers/Connect.php');
 include_once ('Table.php');
 class Post extends Table
 {
- private $id_users;
- private $name_post;
- private $content;
- private $date_create;
- private $id;
+    private $id_users;
+    private $name_post;
+    private $content;
+    private $date_create;
+    private $id;
+
 
     public function __set($prop, $val)
     {
         $this->$prop = $val;
     }
+
     public function __get($prop)
     {
         return $this->$prop;
     }
+
     public function save()
     {
         $add = new Connect();
@@ -48,9 +51,6 @@ class Post extends Table
         return $post;
     }
 
-
-
-
     public static function getByUserId($id){
         $add = new Connect();
         $link=$add->connect();
@@ -65,9 +65,5 @@ class Post extends Table
         }
         return $posts;
     }
-
-
-
-
 
 }
