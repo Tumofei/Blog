@@ -53,6 +53,14 @@ class User extends Table
 
     }
 
+    public static function deleteAll($id){
+        $add = new connect();
+        $link = $add->connect();
+        $delete_user = mysqli_query($link, "DELETE FROM users WHERE id = $id;");
+        $delete_posts =  mysqli_query($link, "DELETE FROM posts WHERE id_users = $id;");
+        return $delete_user;
+    }
+
     public static function getName()
     {
         return 'users';

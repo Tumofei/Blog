@@ -38,11 +38,12 @@ $posts_users = $user->getUserPosts();
                     <th>Название</th>
                     <th>Пост</th>
                     <th>Дата</th>
+                    <th>Действия</th>
                 </tr>
                 <?php
                 if (count($posts_users) == 0): ?>
                     <tr>
-                        <td colspan="3"><?= 'This  user  has  no  posts' ?></td>
+                        <td colspan="4"><?= 'This  user  has  no  posts' ?></td>
 
                     </tr>
 
@@ -52,6 +53,9 @@ $posts_users = $user->getUserPosts();
                         <td><?= $posts->name_post ?></td>
                         <td> <?= $posts->content ?> </td>
                         <td> <?= $posts->date_create ?></td>
+                        <td>
+                            <a href="../Controllers/delete.php?who=post&id=<?= $posts->id ?>&id_users=<?= $posts->id_users ?>"
+                               class="btn btn-success"> Удалить </a></td>
                     </tr>
                 <?php endforeach; ?>
             </table>

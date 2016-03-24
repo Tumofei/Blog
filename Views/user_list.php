@@ -23,15 +23,18 @@
                     <th>Имя</th>
                     <th>E-mail</th>
                     <th>Количество постов</th>
+                    <th>Действия</th>
                 </tr>
                 <?php
                 require('../Models/User.php');
+
                 $arr_users = User::getAll();
                 foreach ($arr_users as $users):?>
                     <tr>
                         <td><a href="../Views/user_posts.php?email=<?= $users->email ?>"> <?= $users->name ?></a></td>
                         <td>  <?= $users->email ?> </td>
                         <td> <?= $users->getPostCount(); ?> </td>
+                        <td><a href="../Controllers/delete.php?who=user&id=<?=$users->id?>" class="btn btn-success"> Удалить </a></td>
                     </tr>
                 <?php endforeach; ?>
 

@@ -38,6 +38,13 @@ class Post extends Table
         return $result;
     }
 
+    public static function delete($id){
+        $add = new connect();
+        $link = $add->connect();
+        $delete_post =  mysqli_query($link, "DELETE FROM posts WHERE id = $id;");
+        return $delete_post;
+    }
+
     public static function getName()
     {
         return 'posts';
@@ -46,11 +53,11 @@ class Post extends Table
     public static function init($row)
     {
         $post = new Post();
-        $post->id = $row[0];
+        $post->id_users = $row[0];
         $post->name_post = $row[1];
         $post->content = $row[2];
         $post->date_create = $row[3];
-        $post->id_users = $row[4];
+        $post->id = $row[4];
         return $post;
     }
 

@@ -16,7 +16,7 @@ $password = trim($_REQUEST['password']);
 $user = User::getByEmail($email);
 if ($password == $user->password) {
     $_SESSION['name'] = $user->name;
-    $_SESSION['email'] = $user->email;
+    $_SESSION['id'] = $user->id;
     echo json_encode(['result' => 'ok' , 'email' => $user->email ]);
     die();
 } else {
