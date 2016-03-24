@@ -16,6 +16,7 @@ class User extends Table
     private $email;
     private $id;
     private $password;
+    private $permission;
 
 
     public function __set($prop, $val)
@@ -34,7 +35,8 @@ class User extends Table
         $user->id = $row[0];
         $user->name = $row[1];
         $user->email = $row[2];
-        $user->password = $row [3];
+        $user->password = $row[3];
+        $user->permission = $row[4];
         return $user;
     }
 
@@ -53,11 +55,12 @@ class User extends Table
 
     }
 
-    public static function deleteAll($id){
+    public static function deleteAll($id)
+    {
         $add = new connect();
         $link = $add->connect();
         $delete_user = mysqli_query($link, "DELETE FROM users WHERE id = $id;");
-        $delete_posts =  mysqli_query($link, "DELETE FROM posts WHERE id_users = $id;");
+        $delete_posts = mysqli_query($link, "DELETE FROM posts WHERE id_users = $id;");
         return $delete_user;
     }
 
