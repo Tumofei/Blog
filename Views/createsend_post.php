@@ -1,3 +1,4 @@
+<?php require('session.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,38 +13,48 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="well col-lg-6 col-lg-offset-3">
+        <div class="well col-lg-12"><p class="text-center text-success h3">Blog.dev</p></div>
 
-            <!-- center page------------------->
-            <div class="weight">
-                <div class="form-group">
-                    <form action="../Controllers/create_post.php" class="valida" id="form" method="post" role="form">
-                        <fieldset>
-                            <input type="hidden" name="id" value="<?= trim($_REQUEST['id']) ?>">
-                            <label for="name">Название поста:</label><br/>
-                            <input type="text" name="name_post" id="name_post" placeholder="Введите название поста"
-                                   class="form-control"
-                                   required="true"><br/>
-                            <label for="email">Контент:</label><br/>
+    </div>
+
+    <div class="row">
+        <div class="well col-lg-3 col-lg-offset-0  ">
+
+            <div class="btn-group-vertical btn-block">
+
+                <a href="../Views/create_user.html" class="btn btn-success ">Добавление пользователя</a>
+                <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
+
+
+            </div>
+        </div>
+        <div class="well col-lg-9">
+
+            <a href="/index.php" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На
+                главную </a>
+            <br/>
+            <br/>
+            <div class="form-group">
+                <form action="../Controllers/create_post.php" class="valida" id="form" method="post" role="form">
+                    <fieldset>
+                        <input type="hidden" name="id" value="<?= trim($_REQUEST['id']) ?>">
+                        <label for="name">Название поста:</label><br/>
+                        <input type="text" name="name_post" id="name_post" placeholder="Введите название поста"
+                               class="form-control"
+                               required="true"><br/>
+                        <label for="email">Контент:</label><br/>
                 <textarea type="text" name="content" id="content" placeholder="Ваш пост.." rows="5" class="form-control"
                           required="true" maxlength="500"></textarea><br/>
-                            <button type="submit" name="submit" class="btn btn-block btn-success">Добавить пост<br/>
-                            </button>
-
-                        </fieldset>
-                    </form>
-                </div>
-
-                <div>
-                    <a href="/index.html" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На
-                        главную </a>
-                </div>
+                        <button type="submit" name="submit" class="btn btn-block btn-success">Добавить пост<br/>
+                        </button>
+                    </fieldset>
+                </form>
             </div>
-
-            <!-- center page------------------->
         </div>
     </div>
 </div>
+
+<
 
 
 <script type="text/javascript" src="../js/jquery-2.2.2.min.js"></script>

@@ -1,4 +1,4 @@
-<?php require('session.php');?>
+<?php require('session.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +15,27 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="well col-lg-6 col-lg-offset-3">
+        <div class="well col-lg-12"><p class="text-center text-success h3">Blog.dev</p></div>
 
-            <!-- center page------------------->
+    </div>
+
+    <div class="row">
+        <div class="well col-lg-3 col-lg-offset-0  ">
+
+            <div class="btn-group-vertical btn-block">
+
+                <a href="../Views/create_user.html" class="btn btn-success ">Добавление пользователя</a>
+                <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
+
+
+            </div>
+        </div>
+        <div class="well col-lg-9">
+
+                <a href="/index.php" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На главную
+                </a>
+
+
             <table class="table table-striped table-bordered table-hover table-condensed weight">
                 <h4 class="text-success" style="margin:20px"> Список пользователей: </h4>
                 <tr>
@@ -35,19 +53,21 @@
                         <td><a href="../Views/user_posts.php?email=<?= $users->email ?>"> <?= $users->name ?></a></td>
                         <td>  <?= $users->email ?> </td>
                         <td> <?= $users->getPostCount(); ?> </td>
-                        <td><a href="../Controllers/delete.php?who=user&id=<?=$users->id?>" class="btn btn-success"> Удалить </a></td>
+                        <td><a href="../Controllers/delete.php?who=user&id=<?= $users->id ?>" class="btn btn-block btn-success">
+                                Удалить </a></td>
                     </tr>
                 <?php endforeach; ?>
 
             </table>
-            <div class="weight">
-                <a href="/index.html" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На главную
-                </a>
-            </div>
-            <!-- center page------------------->
         </div>
     </div>
 </div>
+
+<!-- center page------------------->
+
+
+<!-- center page------------------->
+
 </body>
 
 

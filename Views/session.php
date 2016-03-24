@@ -1,10 +1,28 @@
 <?php
 session_start();
-if ($_SESSION ) :
+if ($_SESSION) :
     $name = $_SESSION['name'];
-    $role = $_SESSION['permission']?>
-    <div class="well  col-lg-2  affix">
-        <p class="text-center">Hello, <?= $name ?>, you are: <?= $role ?> </p>
-        <a href="../Controllers/logout.php" class="btn btn-block btn-success">Logout</a>
+    $role = $_SESSION['permission'] ?>
+    <div class="container">
+        <div class="row">
+            <div class="well  col-lg-3  affix" style="margin-top: 17%; width: 294px">
+                <p class="text-center ">Hello, <?= $name ?>, you are: <?= $role ?> </p>
+                <a href="../Controllers/logout.php" class="btn btn-block btn-success">Logout</a>
+            </div>
+        </div>
+
     </div>
+
+<?php else: ?>
+    <div class="container">
+        <div class="row">
+            <div class="well  col-lg-3  affix" style="margin-top: 17%; width: 294px">
+
+                <a href="../Views/login.html" class="btn btn-block btn-success">Login</a>
+            </div>
+        </div>
+
+    </div>
+
+
 <?php endif; ?>

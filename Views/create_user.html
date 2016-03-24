@@ -1,3 +1,4 @@
+<?php require('session.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,50 +13,58 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="well col-lg-6 col-lg-offset-3">
+        <div class="well col-lg-12"><p class="text-center text-success h3">Blog.dev</p></div>
 
-            <!-- center page------------------->
-            <div class="weight">
-                <div class="form-group">
-                    <form action="" class="valida" id="form" method="post" role="form">
-                        <fieldset>
-                            <div class="form-group">
-                                <label for="name">Имя:</label><br/>
-                                <input type="text" name="name" id="name" placeholder="Введите имя" class="form-control"
-                                       filter="text"  required="true"><br/>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email:</label><br/>
-                                <input type="text" name="email" id="email" placeholder="Введите email"
-                                       class="form-control"
-                                       required="true" filter="email" data-invalid="Must be a valid email address"
-                                       size="30">
-                                <div style="color: red" id="results"></div>
-                                <br/>
-
-                            </div>
-
-                            <button type="submit" name="submit" id="submit" class="btn btn-block btn-success">Добавить
-                                пользователя<br/></button>
-
-                        </fieldset>
-
-                    </form>
-                </div>
-
-                <div>
-                    <a href="/index.html" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На
-                        главную </a>
-                </div>
-
-
-                <!-- center page------------------->
-            </div>
-        </div>
     </div>
 
+    <div class="row">
+        <div class="well col-lg-3 col-lg-offset-0  ">
 
+            <div class="btn-group-vertical btn-block">
+
+                <a href="../Views/create_user.html" class="btn btn-success ">Добавление пользователя</a>
+                <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
+
+
+            </div>
+        </div>
+        <div class="well col-lg-9">
+            <a href="/index.php" class="btn btn-group-vertical btn-success"><span class="glyphicon glyphicon-home"></span> На
+                главную </a><br/>
+            <br/>
+            <div class="form-group">
+                <form action="" class="valida" id="form" method="post" role="form">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="name">Имя:</label><br/>
+                            <input type="text" name="name" id="name" placeholder="Введите имя" class="form-control"
+                                   filter="text" required="true"><br/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label><br/>
+                            <input type="text" name="email" id="email" placeholder="Введите email"
+                                   class="form-control"
+                                   required="true" filter="email" data-invalid="Must be a valid email address"
+                                   size="30">
+                            <div style="color: red" id="results"></div>
+                            <br/>
+
+                        </div>
+
+                        <button type="submit" name="submit" id="submit" class="btn btn-block btn-success">Добавить
+                            пользователя<br/></button>
+
+                    </fieldset>
+
+                </form>
+            </div>
+
+
+        </div>
+    </div>
 </div>
+
+<!-- center page------------------->
 
 
 <script type="text/javascript" src="../js/jquery-2.2.2.min.js"></script>
