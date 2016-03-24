@@ -4,21 +4,8 @@
     <meta charset="UTF-8"/>
     <title>Error </title>
     <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <style>
-        .error-template {
-            padding: 40px 15px;
-            text-align: center;
-        }
+    <link href="/bootstrap/css/errorpage.css" rel="stylesheet">
 
-        .error-actions {
-            margin-top: 15px;
-            margin-bottom: 15px;
-        }
-
-        .error-actions .btn {
-            margin-right: 10px;
-        }
-    </style>
 </head>
 <body>
 

@@ -15,6 +15,7 @@ class User extends Table
     private $name;
     private $email;
     private $id;
+    private $password;
 
 
     public function __set($prop, $val)
@@ -33,6 +34,7 @@ class User extends Table
         $user->id = $row[0];
         $user->name = $row[1];
         $user->email = $row[2];
+        $user->password = $row [3];
         return $user;
     }
 
@@ -72,7 +74,7 @@ class User extends Table
         $add = new Connect();
         $link = $add->connect();
 
-        $result = mysqli_query($link, "SELECT id, name, email FROM users WHERE email = \"$email\"");
+        $result = mysqli_query($link, "SELECT * FROM users WHERE email = \"$email\"");
         $row = mysqli_fetch_array($result);
         $user = User::init($row);
         return $user;
