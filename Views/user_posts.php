@@ -25,7 +25,7 @@ $email = trim($_REQUEST['email']);
 
 $user = User::getByEmail($email);
 $posts_users = $user->getUserPosts();
-
+$role = User::getById($_SESSION['id']);
 ?>
 <div class="container">
     <div class="row">
@@ -38,15 +38,32 @@ $posts_users = $user->getUserPosts();
 
             <div class="btn-group-vertical btn-block">
 
-                <a href="../Views/create_user.html" class="btn btn-success ">Добавление пользователя</a>
-                <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
 
+                <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
+                <?php
+                if ($_SESSION) : ?>
+                    <a href="../Views/user_posts.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
+                <?php endif; ?>
 
             </div>
         </div>
         <div class="well col-lg-9">
+            <?php switch ($role->permission) {
+            case 'admin': ?>
+                <a href="createsend_post.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
+                <?php break;
 
+            case 'moderator':
+                if ($role->email == $email ) :
+                ?>
+                    <a href="createsend_post.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
+                <?php endif; break;
+
+            case 'user': ?>
             <a href="createsend_post.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
+                <?php break; }
+            ?>
+
             <a href="/index.php" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На главную
             </a>
 
@@ -72,9 +89,15 @@ $posts_users = $user->getUserPosts();
                         <td><?= $posts->name_post ?></td>
                         <td> <?= $posts->content ?> </td>
                         <td> <?= $posts->date_create ?></td>
-                        <td>
-                            <a href="../Controllers/delete.php?who=post&id=<?= $posts->id ?>&id_users=<?= $posts->id_users ?>"
+
+                            <?php
+                            if ($role->permission == 'moderator' AND $role->email != $email) : ?>
+                                <td> </td>
+                            <?php else: ?>
+                            <td> <a href="../Controllers/delete.php?who=post&id=<?= $posts->id ?>&id_users=<?= $posts->id_users ?>"
                                class="btn btn-block btn-success"> Удалить </a></td>
+                            <?php endif; ?>
+
                     </tr>
                 <?php endforeach; ?>
             </table>

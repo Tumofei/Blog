@@ -1,4 +1,4 @@
-<?php include('Views/session.php');?>
+<?php include('Views/session.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,10 +21,18 @@
 
             <div class="btn-group-vertical btn-block">
 
-                <a href="Views/create_user.html" class="btn btn-success ">Добавление пользователя</a>
-                <a href="Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
+                <!-- <a href="Views/create_user.html" class="btn btn-success ">Добавление пользователя</a>-->
 
+                <?php
+                if ($_SESSION) : ?>
+                    <a href="Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
+                    <a href="/Views/user_posts.php?email=<?= trim($_SESSION['email']); ?>" class="btn  btn-success">Мои
+                        посты</a>
 
+                <?php
+                 else:
+                    echo 'Залогинтесь, пожалуйста!';
+                endif; ?>
             </div>
         </div>
         <!--<div class="well col-lg-9"> Основная часть</div>-->

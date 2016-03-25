@@ -46,10 +46,10 @@ class User extends Table
         $link = $add->connect();
         if ($this->id) {
 
-            $result = mysqli_query($link, "UPDATE users SET name = \"$this->name\", email = \"$this->email\" WHERE id = $this->id;");
+            $result = mysqli_query($link, "UPDATE users SET name = \"$this->name\", email = \"$this->email\" , password = \"$this->password\" , permission = \"$this->permission\" WHERE id = $this->id;");
 
         } else {
-            $result = mysqli_query($link, "INSERT INTO users (name, email) VALUES (\"$this->name\", \"$this->email\");");
+            $result = mysqli_query($link, "INSERT INTO users (name, email, password, permission) VALUES (\"$this->name\", \"$this->email\" , password = \"$this->password\" , permission = \"$this->permission\");");
         }
         return $result;
 

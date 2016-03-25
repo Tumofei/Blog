@@ -1,4 +1,11 @@
-<?php require('session.php'); ?>
+<?php //require('session.php');
+session_start();
+if (!$_SESSION OR ($_SESSION['permission'] == 'user' OR $_SESSION['permission'] == 'moderator')) {
+    header ('Location: 403.html');
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,9 +29,12 @@
 
             <div class="btn-group-vertical btn-block">
 
-                <a href="../Views/create_user.html" class="btn btn-success ">Добавление пользователя</a>
-                <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
 
+                <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
+                <?php
+                if ($_SESSION) : ?>
+                    <a href="../Views/user_posts.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
+                <?php endif;?>
 
             </div>
         </div>

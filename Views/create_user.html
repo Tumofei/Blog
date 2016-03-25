@@ -22,7 +22,7 @@
 
             <div class="btn-group-vertical btn-block">
 
-                <a href="../Views/create_user.html" class="btn btn-success ">Добавление пользователя</a>
+
                 <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
 
 
@@ -36,19 +36,38 @@
                 <form action="" class="valida" id="form" method="post" role="form">
                     <fieldset>
                         <div class="form-group">
-                            <label for="name">Имя:</label><br/>
+                            <label for="name">Name:</label>
                             <input type="text" name="name" id="name" placeholder="Введите имя" class="form-control"
-                                   filter="text" required="true"><br/>
+                                   filter="text" required="true">
                         </div>
                         <div class="form-group">
-                            <label for="email">Email:</label><br/>
+                            <label for="email">Email:</label>
                             <input type="text" name="email" id="email" placeholder="Введите email"
                                    class="form-control"
                                    required="true" filter="email" data-invalid="Must be a valid email address"
                                    size="30">
                             <div style="color: red" id="results"></div>
-                            <br/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" name="password" id="password" placeholder="Введите пароль"
+                                   class="form-control"
+                                   filter="text" required="true">
+                        </div>
 
+                        <div class="form-group">
+                            <label for="password2">Repeate password:</label>
+                            <input type="password2" name="password" id="password2" placeholder="Повторите пароль"
+                                   class="form-control"
+                                   filter="text|matches:password" required="true" data-invalid="Passwords must match " >
+                        </div>
+                        <div class="form-group" >
+                            <label for="permission">Permission:</label>
+                            <select name="permission" id="permission" required="true" class="form-control" >
+                                <option value="user">user</option>
+                                <option value="moderator">moderator</option>
+                                <option value="admin">admin</option>
+                            </select>
                         </div>
 
                         <button type="submit" name="submit" id="submit" class="btn btn-block btn-success">Добавить
