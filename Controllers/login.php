@@ -10,8 +10,8 @@ include_once('../Models/User.php');
 session_start();
 
 $email = trim($_REQUEST['email']);
-$password = trim($_REQUEST['password']);
-
+$pass = trim($_REQUEST['password']);
+$password = md5($pass);
 
 $user = User::getByEmail($email);
 if ($password == $user->password) {

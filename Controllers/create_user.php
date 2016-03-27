@@ -19,7 +19,7 @@ if ($check === TRUE) {
     $user = new User();
     $user->__set('name', $name);
     $user->__set('email', $email);
-    $user->__set('password', $password);
+    $user->__set('password', md5($password));
     $user->__set('permission', $permission);
     $user->save();
     $json = User::getByEmail($email);
