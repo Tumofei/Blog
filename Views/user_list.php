@@ -1,4 +1,12 @@
-<?php require('session.php'); ?>
+<?php require('session.php');
+
+if (!$_SESSION): ?>
+    <script>
+        document.location.href = '403.html';
+    </script>
+<?php endif; ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>

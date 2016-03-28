@@ -1,4 +1,9 @@
-<?php require('session.php'); ?>
+<?php require('session.php');
+if (!$_SESSION): ?>
+    <script>
+        document.location.href = '403.html';
+    </script>
+<?php endif; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,27 +54,34 @@ $role = User::getById($_SESSION['id']);
         </div>
         <div class="well col-lg-9">
             <?php switch ($role->permission) {
-            case 'admin': ?>
-                <a href="createsend_post.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
-                <?php break;
-
-            case 'moderator':
-                if ($role->email == $email ) :
-                ?>
+                case 'admin': ?>
                     <a href="createsend_post.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
-                <?php endif; break;
+                    <?php break;
 
-            case 'user': ?>
-            <a href="createsend_post.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
-                <?php break; }
+                case 'moderator':
+                    if ($role->email == $email) :
+                        ?>
+                        <a href="createsend_post.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
+                    <?php endif;
+                    break;
+
+                case 'user': ?>
+                    <a href="createsend_post.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
+                    <?php break;
+            }
             ?>
 
             <a href="/index.php" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На главную
             </a>
 
 
-            <table class="table table-striped table-bordered table-hover table-condensed weight">
+            <table class="table table-striped table-bordered table-hover table-condensed weight" style="table-layout: fixed;
+    width:100%">
                 <h4 class="text-success" style="margin:20px"> Список постов <?= $user->name ?> : </h4>
+                <col width="10%">
+                <col width="50%">
+                <col width="10%">
+                <col width="10%">
                 <tr>
                     <th>Название</th>
                     <th>Пост</th>
@@ -87,16 +99,17 @@ $role = User::getById($_SESSION['id']);
                 foreach ($posts_users as $posts): ?>
                     <tr>
                         <td><?= $posts->name_post ?></td>
-                        <td> <?= $posts->content ?> </td>
+                        <td style="word-break: break-all;"> <?= $posts->content ?> </td>
                         <td> <?= $posts->date_create ?></td>
 
-                            <?php
-                            if ($role->permission == 'moderator' AND $role->email != $email) : ?>
-                                <td> </td>
-                            <?php else: ?>
-                            <td> <a href="../Controllers/delete.php?who=post&id=<?= $posts->id ?>&id_users=<?= $posts->id_users ?>"
-                               class="btn btn-block btn-success"> Удалить </a></td>
-                            <?php endif; ?>
+                        <?php
+                        if ($role->permission == 'moderator' AND $role->email != $email) : ?>
+                            <td></td>
+                        <?php else: ?>
+                            <td>
+                                <a href="../Controllers/delete.php?who=post&id=<?= $posts->id ?>&id_users=<?= $posts->id_users ?>"
+                                   class="btn btn-block btn-success"> Удалить </a></td>
+                        <?php endif; ?>
 
                     </tr>
                 <?php endforeach; ?>

@@ -1,10 +1,10 @@
-<?php //require('session.php');
-session_start();
-if (!$_SESSION OR ($_SESSION['permission'] == 'user' OR $_SESSION['permission'] == 'moderator')) {
-    header ('Location: 403.html');
-    die();
-}
-?>
+<?php require('session.php');
+
+if (!$_SESSION): ?>
+    <script>
+        document.location.href = '403.html';
+    </script>
+<?php endif; ?>
 
 <!DOCTYPE html>
 <html>
@@ -64,7 +64,7 @@ if (!$_SESSION OR ($_SESSION['permission'] == 'user' OR $_SESSION['permission'] 
     </div>
 </div>
 
-<
+
 
 
 <script type="text/javascript" src="../js/jquery-2.2.2.min.js"></script>
