@@ -2,6 +2,8 @@ CREATE TABLE users(
 id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
 name TEXT,
 email VARCHAR(200) UNIQUE
+password VARCHAR(50)
+permission CHAR(50)
 );
 CREATE TABLE posts(
 id_users INTEGER,	

@@ -1,14 +1,14 @@
-index.html            Карта сайта
-user_list.php         Выводит список пользователей и количество постов пользователя из базы данных 
-user_posts.php        Выводит список постов пользователя 
-user_posts.html       Форма поиска по email
-User.php              Класс User
-Post.php              Класс Post
-login.html            Форма для добавления пользователя
-login.php             Скрипт для добавления пользователя
-db.sql                Сreate таблицы 
-connect.php           Соединение и выбор базы данных
-local_params.php Данные базы данных
+[bootstrap] - Шаблоны bootstrap
+[Controllers] - php-скрипты функционала
+[images] - картинки
+[js] - js-скрипты
+[Models] - классы
+[Views] - страницы вывода информации
+index.php - карта сайта
+error.php - страница ошибок
+[Configs]   db.sql Сreate-таблицы
+            local_params.php Данные базы данных
+
 Описание файла local_params.php
 <?php
 return [
