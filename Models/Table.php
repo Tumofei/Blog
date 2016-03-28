@@ -10,7 +10,7 @@
 include_once('../Controllers/Connect.php');
 include_once('Post.php');
 include_once('User.php');
-
+include_once('Role.php');
 class Table
 {
     public $table;

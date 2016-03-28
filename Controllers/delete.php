@@ -7,6 +7,7 @@
  */
 include_once('../Models/User.php');
 include_once('../Models/Post.php');
+include_once('../Models/Role.php');
 
 $who = trim($_REQUEST['who']);
 $id = trim($_REQUEST['id']);
@@ -25,6 +26,11 @@ switch ($who) {
         $em = $email->email;
         header("Location: ../Views/user_posts.php?email=$em");
         break;
+    case "role":
+        Role::delete($id);
+        header('Location: ../Views/role_list.php');
+        break;
+
 } ?>
 
 

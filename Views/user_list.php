@@ -57,7 +57,9 @@ $role = User::getById($_SESSION['id']); ?>
             </a>
 
             <?php if ($_SESSION AND $role->permission == 'admin') : ?>
-                <a href="../Views/create_user.html" class="btn btn-success ">Добавление пользователя</a>
+                <a href="create_user_view.php" class="btn btn-success ">Добавление пользователя</a>
+                <a href="../Views/role_list.php" class="btn  btn-success">Список ролей пользователей</a>
+
             <?php endif; ?>
 
 
@@ -67,6 +69,7 @@ $role = User::getById($_SESSION['id']); ?>
                     <th>Имя</th>
                     <th>E-mail</th>
                     <th>Количество постов</th>
+                    <th>Роль</th>
                     <th>Действия</th>
                 </tr>
 
@@ -81,6 +84,7 @@ $role = User::getById($_SESSION['id']); ?>
                                 </td>
                                 <td>  <?= $users->email ?> </td>
                                 <td> <?= $users->getPostCount(); ?> </td>
+                                <td>  <?= $users->permission ?> </td>
                                 <td><a href="../Controllers/delete.php?who=user&id=<?= $users->id ?>"
                                        class="btn btn-block btn-success">
                                         Удалить </a></td>
@@ -95,6 +99,7 @@ $role = User::getById($_SESSION['id']); ?>
                                 </td>
                                 <td>  <?= $users->email ?> </td>
                                 <td> <?= $users->getPostCount(); ?> </td>
+                                <td>  <?= $users->permission ?> </td>
                                 <td></td>
                             </tr>
                         <?php endforeach;
@@ -106,11 +111,24 @@ $role = User::getById($_SESSION['id']); ?>
                                 <td> <?= $users->name ?></a></td>
                                 <td>  <?= $users->email ?> </td>
                                 <td> <?= $users->getPostCount(); ?> </td>
+                                <td>  <?= $users->permission ?> </td>
                                 <td></td>
                             </tr>
                         <?php endforeach;
 
                         break;
+
+                    default:
+                        foreach ($arr_users as $users):?>
+                            <tr>
+                                <td> <?= $users->name ?></a></td>
+                                <td>  <?= $users->email ?> </td>
+                                <td> <?= $users->getPostCount(); ?> </td>
+                                <td>  <?= $users->permission ?> </td>
+                                <td></td>
+                            </tr>
+                        <?php endforeach;
+
 
                 } ?>
 

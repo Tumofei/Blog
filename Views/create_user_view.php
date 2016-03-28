@@ -1,4 +1,7 @@
-<?php require('session.php'); ?>
+<?php
+include_once('../Models/Role.php');
+include_once('../Models/User.php');
+include_once('session.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,12 +32,18 @@
 
 
                 <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
+                <?php
+                if ($_SESSION) :
+                    $role = User::getById($_SESSION['id']); ?>
+                    <a href="../Views/user_posts.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
+                <?php endif; ?>
 
 
             </div>
         </div>
         <div class="well col-lg-9">
-            <a href="/index.php" class="btn btn-group-vertical btn-success"><span class="glyphicon glyphicon-home"></span> На
+            <a href="/index.php" class="btn btn-group-vertical btn-success"><span
+                    class="glyphicon glyphicon-home"></span> На
                 главную </a><br/>
             <br/>
             <div class="form-group">
@@ -62,16 +71,18 @@
 
                         <div class="form-group">
                             <label for="password2">Repeate password:</label>
-                            <input type="password2" name="password" id="password2" placeholder="Повторите пароль"
+                            <input type="password" name="password" id="password2" placeholder="Повторите пароль"
                                    class="form-control"
-                                   filter="text|matches:password" required="true" data-invalid="Passwords must match " >
+                                   filter="text|matches:password" required="true" data-invalid="Passwords must match ">
                         </div>
-                        <div class="form-group" >
+
+                        <div class="form-group">
                             <label for="permission">Permission:</label>
-                            <select name="permission" id="permission" required="true" class="form-control" >
-                                <option value="user">user</option>
-                                <option value="moderator">moderator</option>
-                                <option value="admin">admin</option>
+                            <select name="permission" id="permission" class="form-control">
+                                <?php $arr_role = Role::getAll();
+                                foreach ($arr_role as $role):?>
+                                    <option value="<?= $role->level ?>"><?= $role->name ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
 

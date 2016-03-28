@@ -17,7 +17,7 @@ function call() {
             //email занят
             $('#results').empty();
             $('#results').append('Введённый email занят!');
-            setTimeout('document.location.href="../Views/create_user.html";', 1500);
+            setTimeout('document.location.href="../Views/create_user_view.php";', 1500);
         } else {
             //свободен
             document.location.href = '../Views/user_posts.php?email=' + data.email;

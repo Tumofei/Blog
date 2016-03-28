@@ -13,3 +13,9 @@ date_create DATE NOT NULL,
 id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
 );
 INSERT INTO users (name, email, password, permission) VALUES ('admin' , 'admin@gmail.com' , '21232f297a57a5a743894a0e4a801fc3'  , 'admin' );
+CREATE TABLE `role` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`name` TINYTEXT NULL,
+	`level` VARCHAR(50) NULL DEFAULT 'user',
+	PRIMARY KEY (`id`)
+)

@@ -70,6 +70,11 @@ $role = User::getById($_SESSION['id']);
                 case 'user': ?>
                     <a href="createsend_post.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
                     <?php break;
+
+                default:
+                    ?>
+                    <a href="createsend_post.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
+                    <?php break;
             }
             ?>
 
