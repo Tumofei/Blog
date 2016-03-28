@@ -18,6 +18,11 @@ if (!$_SESSION): ?>
             width: 95%;
             margin: 20px;
         }
+
+        body {
+            background: url(../images/1.jpg)
+        }
+
     </style>
 </head>
 <body>
@@ -25,7 +30,7 @@ if (!$_SESSION): ?>
 require('../Models/User.php');
 
 $arr_users = User::getAll();
-$role=User::getById($_SESSION['id']);  ?>
+$role = User::getById($_SESSION['id']); ?>
 
 <div class="container">
     <div class="row">
@@ -41,8 +46,8 @@ $role=User::getById($_SESSION['id']);  ?>
                 <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
                 <?php
                 if ($_SESSION) : ?>
-                <a href="../Views/user_posts.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
-                <?php endif;?>
+                    <a href="../Views/user_posts.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
+                <?php endif; ?>
 
             </div>
         </div>
@@ -67,43 +72,47 @@ $role=User::getById($_SESSION['id']);  ?>
 
                 <?php
 
-                  switch ($role->permission) {
+                switch ($role->permission) {
                     case 'admin':
-                      foreach ($arr_users as $users):?>
-                      <tr>
-                        <td><a href="../Views/user_posts.php?email=<?= $users->email ?>"> <?= $users->name ?></a></td>
-                        <td>  <?= $users->email ?> </td>
-                        <td> <?= $users->getPostCount(); ?> </td>
-                        <td><a href="../Controllers/delete.php?who=user&id=<?= $users->id ?>"
-                               class="btn btn-block btn-success">
-                                Удалить </a></td>
-                      </tr>
-                      <?php endforeach;
-                      break;
+                        foreach ($arr_users as $users):?>
+                            <tr>
+                                <td>
+                                    <a href="../Views/user_posts.php?email=<?= $users->email ?>"> <?= $users->name ?></a>
+                                </td>
+                                <td>  <?= $users->email ?> </td>
+                                <td> <?= $users->getPostCount(); ?> </td>
+                                <td><a href="../Controllers/delete.php?who=user&id=<?= $users->id ?>"
+                                       class="btn btn-block btn-success">
+                                        Удалить </a></td>
+                            </tr>
+                        <?php endforeach;
+                        break;
                     case 'moderator':
-                       foreach ($arr_users as $users):?>
-                      <tr>
-                        <td><a href="../Views/user_posts.php?email=<?= $users->email ?>"> <?= $users->name ?></a></td>
-                        <td>  <?= $users->email ?> </td>
-                        <td> <?= $users->getPostCount(); ?> </td>
-                        <td></td>
-                      </tr>
-                      <?php endforeach;
+                        foreach ($arr_users as $users):?>
+                            <tr>
+                                <td>
+                                    <a href="../Views/user_posts.php?email=<?= $users->email ?>"> <?= $users->name ?></a>
+                                </td>
+                                <td>  <?= $users->email ?> </td>
+                                <td> <?= $users->getPostCount(); ?> </td>
+                                <td></td>
+                            </tr>
+                        <?php endforeach;
                         break;
 
                     case 'user':
-                      foreach ($arr_users as $users):?>
-                      <tr>
-                        <td> <?= $users->name ?></a></td>
-                        <td>  <?= $users->email ?> </td>
-                        <td> <?= $users->getPostCount(); ?> </td>
-                        <td> </td>
-                      </tr>
-                      <?php endforeach;
+                        foreach ($arr_users as $users):?>
+                            <tr>
+                                <td> <?= $users->name ?></a></td>
+                                <td>  <?= $users->email ?> </td>
+                                <td> <?= $users->getPostCount(); ?> </td>
+                                <td></td>
+                            </tr>
+                        <?php endforeach;
 
                         break;
 
-                }  ?>
+                } ?>
 
 
             </table>

@@ -14,6 +14,11 @@ if (!$_SESSION): ?>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript" src="../js/valida.2.1.6.js"></script>
     <link href="../bootstrap/css/view.css" rel="stylesheet">
+    <style>
+        body {
+            background: url(../images/1.jpg)
+        }
+    </style>
 
 
 </head>

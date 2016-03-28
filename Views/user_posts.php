@@ -15,7 +15,9 @@ if (!$_SESSION): ?>
             width: 95%;
             margin: 20px;
         }
-
+        body {
+            background: url(../images/1.jpg)
+        }
     </style>
 </head>
 <body>

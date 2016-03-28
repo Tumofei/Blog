@@ -6,7 +6,9 @@
     <title>Блоги</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <style>
-
+        body {
+            background: url(images/bg.jpg);
+        }
     </style>
 </head>
 <body>
@@ -29,8 +31,8 @@
                     <a href="/Views/user_posts.php?email=<?= trim($_SESSION['email']); ?>" class="btn  btn-success">Мои
                         посты</a>
 
-                <?php
-                 else:
+                    <?php
+                else:
                     echo 'Залогинтесь, пожалуйста!';
                 endif; ?>
             </div>
