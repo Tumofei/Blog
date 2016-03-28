@@ -44,6 +44,12 @@ class Post extends Table
         $delete_post =  mysqli_query($link, "DELETE FROM posts WHERE id = $id;");
         return $delete_post;
     }
+    public static function deleteByUserId($id){
+        $add = new connect();
+        $link = $add->connect();
+        $delete_post =  mysqli_query($link, "DELETE FROM posts WHERE id_users = $id;");
+        return $delete_post;
+    }
 
     public static function getName()
     {

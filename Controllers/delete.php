@@ -10,7 +10,7 @@ include_once('../Models/Post.php');
 
 $who = trim($_REQUEST['who']);
 $id = trim($_REQUEST['id']);
-$id_users = trim($_REQUEST['id_users']);
+
 
 
 switch ($who) {
@@ -19,6 +19,7 @@ switch ($who) {
         header('Location: ../Views/user_list.php');
         break;
     case "post":
+        $id_users = trim($_REQUEST['id_users']);
         Post::delete($id);
         $email = User::getById($id_users);
         $em = $email->email;

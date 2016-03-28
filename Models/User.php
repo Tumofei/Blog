@@ -60,7 +60,8 @@ class User extends Table
         $add = new connect();
         $link = $add->connect();
         $delete_user = mysqli_query($link, "DELETE FROM users WHERE id = $id;");
-        $delete_posts = mysqli_query($link, "DELETE FROM posts WHERE id_users = $id;");
+        Post::deleteByUserId($id);
+        //$delete_posts = mysqli_query($link, "DELETE FROM posts WHERE id_users = $id;");
         return $delete_user;
     }
 
