@@ -17,12 +17,12 @@ function call() {
 
             $('#results').empty();
             $('#results').append('Вcё верно!');
-            //setTimeout('document.location.href="../Views/user_posts.php?email="+ data.email;', 1000);
-            document.location.href = '../Views/user_posts.php?email=' + data.email;
+            //setTimeout('document.location.href="../Views/posts_list.php?email="+ data.email;', 1000);
+            document.location.href = '../Views/posts_list.php?email=' + data.email;
         } else {
             $('#results').empty();
             $('#results').append('Вы ввели неправильный email/password!');
-            setTimeout('document.location.href="../Views/login.php";', 1500);
+            setTimeout('document.location.href="../Views/login_view.php";', 1500);
         }
     });
 }

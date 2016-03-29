@@ -20,7 +20,7 @@ function call() {
             setTimeout('document.location.href="../Views/create_user_view.php";', 1500);
         } else {
             //свободен
-            document.location.href = '../Views/user_posts.php?email=' + data.email;
+            document.location.href = '../Views/posts_list.php?email=' + data.email;
         }
     });
 }

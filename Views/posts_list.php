@@ -47,7 +47,7 @@ $role = User::getById($_SESSION['id']);
 
 
                 <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
-                <a href="../Views/user_posts.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
+                <a href="posts_list.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
 
 
             </div>
@@ -55,23 +55,23 @@ $role = User::getById($_SESSION['id']);
         <div class="well col-lg-9">
             <?php switch ($role->getRole()->level) {
                 case 'admin': ?>
-                    <a href="createsend_post.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
+                    <a href="create_post_view.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
                     <?php break;
 
                 case 'moderator':
                     if ($role->email == $email) :
                         ?>
-                        <a href="createsend_post.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
+                        <a href="create_post_view.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
                     <?php endif;
                     break;
 
                 case 'user': ?>
-                    <a href="createsend_post.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
+                    <a href="create_post_view.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
                     <?php break;
 
                 default:
                     ?>
-                    <a href="createsend_post.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
+                    <a href="create_post_view.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
                     <?php break;
             }
             ?>

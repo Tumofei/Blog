@@ -28,7 +28,7 @@
                 <?php
                 if ($_SESSION) : ?>
                     <a href="Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
-                    <a href="/Views/user_posts.php?email=<?= trim($_SESSION['email']); ?>" class="btn  btn-success">Мои
+                    <a href="/Views/posts_list.php?email=<?= trim($_SESSION['email']); ?>" class="btn  btn-success">Мои
                         посты</a>
 
                     <?php

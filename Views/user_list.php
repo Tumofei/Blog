@@ -45,7 +45,7 @@ $user = User::getById($_SESSION['id']); ?>
 
                 <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
 
-                <a href="../Views/user_posts.php?email=<?= $user->email ?>" class="btn  btn-success">Мои посты</a>
+                <a href="posts_list.php?email=<?= $user->email ?>" class="btn  btn-success">Мои посты</a>
 
 
             </div>
@@ -79,7 +79,7 @@ $user = User::getById($_SESSION['id']); ?>
                         foreach ($arr_users as $users):?>
                             <tr>
                                 <td>
-                                    <a href="../Views/user_posts.php?email=<?= $users->email ?>"> <?= $users->name ?></a>
+                                    <a href="posts_list.php?email=<?= $users->email ?>"> <?= $users->name ?></a>
                                 </td>
                                 <td>  <?= $users->email ?> </td>
                                 <td> <?= $users->getPostCount(); ?> </td>
@@ -94,7 +94,7 @@ $user = User::getById($_SESSION['id']); ?>
                         foreach ($arr_users as $users):?>
                             <tr>
                                 <td>
-                                    <a href="../Views/user_posts.php?email=<?= $users->email ?>"> <?= $users->name ?></a>
+                                    <a href="posts_list.php?email=<?= $users->email ?>"> <?= $users->name ?></a>
                                 </td>
                                 <td>  <?= $users->email ?> </td>
                                 <td> <?= $users->getPostCount(); ?> </td>

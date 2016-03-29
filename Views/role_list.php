@@ -44,7 +44,7 @@ $arr_role = Role::getAll();
 
                 <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
                 <?php $role = User::getById($_SESSION['id']); ?>
-                <a href="../Views/user_posts.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
+                <a href="posts_list.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
 
 
             </div>
