@@ -47,15 +47,13 @@ $role = User::getById($_SESSION['id']);
 
 
                 <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
-                <?php
-                if ($_SESSION) : ?>
-                    <a href="../Views/user_posts.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
-                <?php endif; ?>
+                <a href="../Views/user_posts.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
+
 
             </div>
         </div>
         <div class="well col-lg-9">
-            <?php switch ($role->permission) {
+            <?php switch ($role->getRole()->level) {
                 case 'admin': ?>
                     <a href="createsend_post.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
                     <?php break;
@@ -83,7 +81,7 @@ $role = User::getById($_SESSION['id']);
 
 
             <table class="table table-striped table-bordered table-hover table-condensed weight" style="table-layout: fixed;
-    width:100%">
+    width:95%">
                 <h4 class="text-success" style="margin:20px"> Список постов <?= $user->name ?> : </h4>
                 <col width="10%">
                 <col width="50%">
@@ -110,7 +108,7 @@ $role = User::getById($_SESSION['id']);
                         <td> <?= $posts->date_create ?></td>
 
                         <?php
-                        if ($role->permission == 'moderator' AND $role->email != $email) : ?>
+                        if ($role->getRole()->level == 'moderator' AND $role->email != $email) : ?>
                             <td></td>
                         <?php else: ?>
                             <td>

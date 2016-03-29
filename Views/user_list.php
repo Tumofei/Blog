@@ -30,7 +30,7 @@ if (!$_SESSION): ?>
 require('../Models/User.php');
 
 $arr_users = User::getAll();
-$role = User::getById($_SESSION['id']); ?>
+$user = User::getById($_SESSION['id']); ?>
 
 <div class="container">
     <div class="row">
@@ -44,10 +44,9 @@ $role = User::getById($_SESSION['id']); ?>
             <div class="btn-group-vertical btn-block">
 
                 <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
-                <?php
-                if ($_SESSION) : ?>
-                    <a href="../Views/user_posts.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
-                <?php endif; ?>
+
+                <a href="../Views/user_posts.php?email=<?= $user->email ?>" class="btn  btn-success">Мои посты</a>
+
 
             </div>
         </div>
@@ -56,7 +55,7 @@ $role = User::getById($_SESSION['id']); ?>
             <a href="/index.php" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На главную
             </a>
 
-            <?php if ($_SESSION AND $role->permission == 'admin') : ?>
+            <?php if ($user->getRole()->level == 'admin') : ?>
                 <a href="create_user_view.php" class="btn btn-success ">Добавление пользователя</a>
                 <a href="../Views/role_list.php" class="btn  btn-success">Список ролей пользователей</a>
 
@@ -75,7 +74,7 @@ $role = User::getById($_SESSION['id']); ?>
 
                 <?php
 
-                switch ($role->permission) {
+                switch ($user->getRole()->level) {
                     case 'admin':
                         foreach ($arr_users as $users):?>
                             <tr>
@@ -84,7 +83,7 @@ $role = User::getById($_SESSION['id']); ?>
                                 </td>
                                 <td>  <?= $users->email ?> </td>
                                 <td> <?= $users->getPostCount(); ?> </td>
-                                <td>  <?= $users->permission ?> </td>
+                                <td>  <?= $users->getRole()->name ?> </td>
                                 <td><a href="../Controllers/delete.php?who=user&id=<?= $users->id ?>"
                                        class="btn btn-block btn-success">
                                         Удалить </a></td>
@@ -99,7 +98,7 @@ $role = User::getById($_SESSION['id']); ?>
                                 </td>
                                 <td>  <?= $users->email ?> </td>
                                 <td> <?= $users->getPostCount(); ?> </td>
-                                <td>  <?= $users->permission ?> </td>
+                                <td>  <?= $users->getRole()->name ?> </td>
                                 <td></td>
                             </tr>
                         <?php endforeach;
@@ -111,7 +110,7 @@ $role = User::getById($_SESSION['id']); ?>
                                 <td> <?= $users->name ?></a></td>
                                 <td>  <?= $users->email ?> </td>
                                 <td> <?= $users->getPostCount(); ?> </td>
-                                <td>  <?= $users->permission ?> </td>
+                                <td>  <?= $users->getRole()->name ?> </td>
                                 <td></td>
                             </tr>
                         <?php endforeach;
@@ -124,7 +123,7 @@ $role = User::getById($_SESSION['id']); ?>
                                 <td> <?= $users->name ?></a></td>
                                 <td>  <?= $users->email ?> </td>
                                 <td> <?= $users->getPostCount(); ?> </td>
-                                <td>  <?= $users->permission ?> </td>
+                                <td>  <?= $users->getRole()->name ?> </td>
                                 <td></td>
                             </tr>
                         <?php endforeach;

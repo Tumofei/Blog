@@ -18,7 +18,7 @@ if ($password == $user->password) {
     $_SESSION['name'] = $user->name;
     $_SESSION['email'] = $user->email;
     $_SESSION['id'] = $user->id;
-    $_SESSION['permission'] = $user->permission;
+    $_SESSION['permission'] = $user->role_id;
     echo json_encode(['result' => 'ok' , 'email' => $user->email ]);
     die();
 } else {

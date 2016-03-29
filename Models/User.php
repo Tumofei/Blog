@@ -9,6 +9,7 @@
 include_once('../Controllers/Connect.php');
 include_once('Post.php');
 include_once('Table.php');
+include_once('Role.php');
 
 class User extends Table
 {
@@ -16,7 +17,7 @@ class User extends Table
     private $email;
     private $id;
     private $password;
-    private $permission;
+    private $role_id;
 
 
     public function __set($prop, $val)
@@ -36,7 +37,7 @@ class User extends Table
         $user->name = $row[1];
         $user->email = $row[2];
         $user->password = $row[3];
-        $user->permission = $row[4];
+        $user->role_id = $row[4];
         return $user;
     }
 
@@ -46,14 +47,24 @@ class User extends Table
         $link = $add->connect();
         if ($this->id) {
 
-            $result = mysqli_query($link, "UPDATE users SET name = \"$this->name\", email = \"$this->email\" , password = \"$this->password\" , permission = \"$this->permission\" WHERE id = $this->id;");
+            $result = mysqli_query($link, "UPDATE users SET name = \"$this->name\", email = \"$this->email\" , password = \"$this->password\" , role_id = \"$this->role_id\" WHERE id = $this->id;");
 
         } else {
-            $result = mysqli_query($link, "INSERT INTO users (name, email, password, permission) VALUES (\"$this->name\", \"$this->email\" ,  \"$this->password\" , \"$this->permission\");");
+            $result = mysqli_query($link, "INSERT INTO users (name, email, password, role_id) VALUES (\"$this->name\", \"$this->email\" ,  \"$this->password\" , \"$this->role_id\");");
         }
         return $result;
 
     }
+
+    public function getRole(){
+        $add = new Connect();
+        $link = $add->connect();
+        $result = mysqli_query($link, "SELECT role.id, role.name, role.level FROM role WHERE role.id=\"$this->role_id\";");
+        $row = mysqli_fetch_array($result);
+        $role= Role::init($row);
+        return $role;
+    }
+
 
     public static function deleteAll($id)
     {

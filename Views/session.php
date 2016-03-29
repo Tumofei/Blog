@@ -19,7 +19,7 @@ if ($_SESSION) :
         <div class="row">
             <div class="well  col-lg-3  affix" style="margin-top: 17%; width: 294px">
 
-                <a href="../Views/login.html" class="btn btn-block btn-success">Login</a>
+                <a href="login.php" class="btn btn-block btn-success">Login</a>
             </div>
         </div>
 

@@ -5,7 +5,7 @@ require('../Models/User.php');
 $name = trim($_REQUEST['name']);
 $email = trim($_REQUEST['email']);
 $password = trim($_REQUEST['password']);
-$permission = trim($_REQUEST['permission']);
+$role_id = trim($_REQUEST['role_id']);
 $check = User::checkEmail($email);
 if ($check === TRUE) {
     $json = User::getByEmail($email);
@@ -20,7 +20,7 @@ if ($check === TRUE) {
     $user->__set('name', $name);
     $user->__set('email', $email);
     $user->__set('password', md5($password));
-    $user->__set('permission', $permission);
+    $user->__set('role_id', $role_id);
     $user->save();
     $json = User::getByEmail($email);
     echo json_encode([

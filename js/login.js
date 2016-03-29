@@ -22,7 +22,7 @@ function call() {
         } else {
             $('#results').empty();
             $('#results').append('Вы ввели неправильный email/password!');
-            setTimeout('document.location.href="../Views/login.html";', 1500);
+            setTimeout('document.location.href="../Views/login.php";', 1500);
         }
     });
 }

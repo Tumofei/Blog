@@ -1,7 +1,12 @@
 <?php
 include_once('../Models/Role.php');
 include_once('../Models/User.php');
-include_once('session.php'); ?>
+include_once('session.php');
+if (!$_SESSION): ?>
+    <script>
+        document.location.href = '403.html';
+    </script>
+<?php endif; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,11 +37,8 @@ include_once('session.php'); ?>
 
 
                 <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
-                <?php
-                if ($_SESSION) :
-                    $role = User::getById($_SESSION['id']); ?>
-                    <a href="../Views/user_posts.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
-                <?php endif; ?>
+                <?php $role = User::getById($_SESSION['id']); ?>
+                <a href="../Views/user_posts.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
 
 
             </div>
@@ -77,11 +79,11 @@ include_once('session.php'); ?>
                         </div>
 
                         <div class="form-group">
-                            <label for="permission">Permission:</label>
-                            <select name="permission" id="permission" class="form-control">
+                            <label for="role_id">Permission:</label>
+                            <select name="role_id" id="role_id" class="form-control">
                                 <?php $arr_role = Role::getAll();
                                 foreach ($arr_role as $role):?>
-                                    <option value="<?= $role->level ?>"><?= $role->name ?></option>
+                                    <option value="<?= $role->id ?>"><?= $role->name ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
