@@ -56,7 +56,7 @@ if (!$_SESSION): ?>
                         <label for="name">Название поста:</label><br/>
                         <input type="text" name="name_post" id="name_post" placeholder="Введите название поста"
                                class="form-control"
-                               required="true"><br/>
+                               required="true" maxlength="50"><br/>
                         <label for="email">Контент:</label><br/>
                 <textarea type="text" name="content" id="content" placeholder="Ваш пост.." rows="5" class="form-control"
                           required="true" maxlength="500"></textarea><br/>
