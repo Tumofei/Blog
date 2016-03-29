@@ -18,11 +18,12 @@ if ($password == $user->password) {
     $_SESSION['name'] = $user->name;
     $_SESSION['email'] = $user->email;
     $_SESSION['id'] = $user->id;
-    $_SESSION['permission'] = $user->role_id;
+    $_SESSION['role_id'] = $user->role_id;
+    $_SESSION['name_role'] = $user->getRole()->name;
     echo json_encode(['result' => 'ok' , 'email' => $user->email ]);
     die();
 } else {
-    echo json_encode(['result' => 'neok']);
+    echo json_encode(['result' => 'ne ok']);
 
 }
 die();

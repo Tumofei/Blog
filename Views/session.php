@@ -2,8 +2,9 @@
 session_start();
 if ($_SESSION) :
     $name = $_SESSION['name'];
-    $role = $_SESSION['permission'];
-    $email = $_SESSION['email']?>
+    $email = $_SESSION['email'];
+    $role = $_SESSION['name_role'];
+    ?>
     <div class="container">
         <div class="row">
             <div class="well  col-lg-3  affix" style="margin-top: 19%; width: 294px">
