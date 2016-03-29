@@ -14,7 +14,7 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="well col-lg-12"><p class="text-center text-success h3">Blog.dev</p></div>
+        <div class="well col-lg-12" style="background-image: url(images/blog.jpg); "><p class="text-center text-success h3">Blog.dev</p></div>
 
     </div>
 
