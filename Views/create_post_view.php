@@ -1,5 +1,6 @@
 <?php require('session.php');
-
+include_once ('../Models/User.php');
+$role = User::getById($_SESSION['id']);
 if (!$_SESSION): ?>
     <script>
         document.location.href = '403.html';
