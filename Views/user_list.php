@@ -85,6 +85,7 @@ $user = User::getById($_SESSION['id']); ?>
                                     <a href="posts_list.php?email=<?= $users->email ?>"> <?= $users->name ?></a>
                                 </td>
                                 <td>  <?= $users->email ?> </td>
+                                <!-- Выпадающий список с названиями постов для редактирования-->
                                 <td> <?php if ($users->getPostCount() != 0): ?>
                                         <div class="dropdown">
                                             <a href="#" data-toggle="dropdown" class="dropdown-toggle">
@@ -101,8 +102,8 @@ $user = User::getById($_SESSION['id']); ?>
                                             </ul>
                                         </div>
                                     <?php endif; ?>
-
                                 </td>
+                                <!--------------------------------------------------------------->
                                 <td>  <?= $users->getRole()->name ?> </td>
                                 <td><a href="../Controllers/delete.php?who=user&id=<?= $users->id ?>"
                                        class="btn btn-block btn-success">
@@ -117,7 +118,23 @@ $user = User::getById($_SESSION['id']); ?>
                                     <a href="posts_list.php?email=<?= $users->email ?>"> <?= $users->name ?></a>
                                 </td>
                                 <td>  <?= $users->email ?> </td>
-                                <td> <?= $users->getPostCount(); ?> </td>
+                                <td> <?php if ($users->getPostCount() != 0): ?>
+                                        <div class="dropdown">
+                                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                                                <?= $users->getPostCount(); ?>
+                                                <b class="caret"></b>
+                                            </a>
+                                            <ul class="dropdown-menu" href="#">
+                                                <?php $arr_posts = $users->getUserPosts();
+                                                foreach ($arr_posts as $post) : ?>
+                                                    <li>
+                                                        <a><?= $post->name_post; ?></a>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        </div>
+                                     <?php endif; ?>
+                                </td>
                                 <td>  <?= $users->getRole()->name ?> </td>
                                 <td></td>
                             </tr>

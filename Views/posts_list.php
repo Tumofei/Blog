@@ -15,6 +15,7 @@ if (!$_SESSION): ?>
             width: 95%;
             margin: 20px;
         }
+
         body {
             background: url(../images/1.jpg)
         }
@@ -84,9 +85,9 @@ $role = User::getById($_SESSION['id']);
     width:95%">
                 <h4 class="text-success" style="margin:20px"> Список постов <?= $user->name ?> : </h4>
                 <col width="10%">
-                <col width="50%">
+                <col width="45%">
                 <col width="10%">
-                <col width="10%">
+                <col width="15%">
                 <tr>
                     <th>Название</th>
                     <th>Пост</th>
@@ -112,8 +113,14 @@ $role = User::getById($_SESSION['id']);
                             <td></td>
                         <?php else: ?>
                             <td>
-                                <a href="../Controllers/delete.php?who=post&id=<?= $posts->id ?>&id_users=<?= $posts->id_users ?>"
-                                   class="btn btn-block btn-success"> Удалить </a></td>
+                                <div class="btn-group-vertical btn-block">
+                                    <a href="../Controllers/delete.php?who=post&id=<?= $posts->id ?>&id_users=<?= $posts->id_users ?>"
+                                       class="btn btn-success btn-sm"> Удалить </a>
+                                    <a href="edit_post_view.php?id_users=<?= $posts->id_users; ?>&id_post=<?= $posts->id; ?>"
+                                       class="btn btn-success btn-sm"> Редактировать </a>
+                                </div>
+                            </td>
+
                         <?php endif; ?>
 
                     </tr>
