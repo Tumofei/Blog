@@ -6,7 +6,7 @@ require('../Models/User.php');
  * Date: 28.03.2016
  * Time: 22:55
  */
-if (!$_SESSION): ?>
+if (!$_SESSION OR $_SESSION['role_id']!= 3): ?>
     <script>
         document.location.href = '403.html';
     </script>

@@ -1,5 +1,5 @@
 <?php require('session.php');
-if (!$_SESSION): ?>
+if (!$_SESSION OR $_SESSION['role_id']!= 3): ?>
     <script>
         document.location.href = '403.html';
     </script>

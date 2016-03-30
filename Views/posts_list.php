@@ -1,4 +1,5 @@
 <?php require('session.php');
+$email = trim($_REQUEST['email']);
 if (!$_SESSION): ?>
     <script>
         document.location.href = '403.html';
@@ -26,9 +27,6 @@ if (!$_SESSION): ?>
 
 <?php
 require('../Models/User.php');
-
-
-$email = trim($_REQUEST['email']);
 
 
 $user = User::getByEmail($email);
@@ -60,8 +58,7 @@ $role = User::getById($_SESSION['id']);
                     <?php break;
 
                 case 'moderator':
-                    if ($role->email == $email) :
-                        ?>
+                    if ($role->email == $email): ?>
                         <a href="create_post_view.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
                     <?php endif;
                     break;
@@ -70,8 +67,7 @@ $role = User::getById($_SESSION['id']);
                     <a href="create_post_view.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
                     <?php break;
 
-                default:
-                    ?>
+                default: ?>
                     <a href="create_post_view.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
                     <?php break;
             }
