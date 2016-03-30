@@ -33,8 +33,12 @@ class Post extends Table
     {
         $add = new Connect();
         $link = $add->connect();
+        if($this->id) {
+            $result = mysqli_query($link, "UPDATE posts SET name_post = \"$this->name_post\", content = \"$this->content\", date_create = CURDATE() WHERE id = \"$this->id\";");
+        } else {
+            $result = mysqli_query($link, "INSERT INTO posts (id_users, name_post, content, date_create) VALUES (\"$this->id_users\" , \"$this->name_post\",\"$this->content\", CURDATE());");
+        }
 
-        $result = mysqli_query($link, "INSERT INTO posts (id_users, name_post, content, date_create) VALUES (\"$this->id_users\" , \"$this->name_post\",\"$this->content\", CURDATE());");
         return $result;
     }
 

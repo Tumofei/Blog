@@ -17,5 +17,5 @@ $js = User::getById($id);
 echo "Post added";
 ?>
 <script>
-    document.location.href = '../Views/user_posts.php?email=<?=$js->email?>';
+    document.location.href = '../Views/posts_list.php?email=<?=$js->email?>';
 </script>

@@ -13,6 +13,9 @@ if (!$_SESSION): ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title> Список пользователей:</title>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/bootstrap-down.js"></script>
+    <script type="text/javascript" src="../js/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
     <style>
         .weight {
             width: 95%;
@@ -82,7 +85,24 @@ $user = User::getById($_SESSION['id']); ?>
                                     <a href="posts_list.php?email=<?= $users->email ?>"> <?= $users->name ?></a>
                                 </td>
                                 <td>  <?= $users->email ?> </td>
-                                <td> <?= $users->getPostCount(); ?> </td>
+                                <td> <?php if ($users->getPostCount() != 0): ?>
+                                        <div class="dropdown">
+                                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                                                <?= $users->getPostCount(); ?>
+                                                <b class="caret"></b>
+                                            </a>
+                                            <ul class="dropdown-menu" href="#">
+                                                <?php $arr_posts = $users->getUserPosts();
+                                                foreach ($arr_posts as $post) : ?>
+                                                    <li>
+                                                        <a href="edit_post_view.php?id_users=<?= $post->id_users; ?>&id_post=<?= $post->id; ?>"><?= $post->name_post; ?></a>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        </div>
+                                    <?php endif; ?>
+
+                                </td>
                                 <td>  <?= $users->getRole()->name ?> </td>
                                 <td><a href="../Controllers/delete.php?who=user&id=<?= $users->id ?>"
                                        class="btn btn-block btn-success">
