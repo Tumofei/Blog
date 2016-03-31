@@ -21,6 +21,7 @@ if ($password == $user->password) {
     $_SESSION['role_id'] = $user->role_id;
     $_SESSION['name_role'] = $user->getRole()->name;
     $_SESSION['level_role'] = $user->getRole()->level;
+    $_SESSION['time'] = time();
     echo json_encode(['result' => 'ok' , 'email' => $user->email ]);
     die();
 } else {

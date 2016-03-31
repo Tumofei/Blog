@@ -1,5 +1,10 @@
 <?php
 session_start();
+$time = time();
+if ($_SESSION AND $time - $_SESSION['time'] > 60*10) {
+     session_destroy();
+}
+
 if ($_SESSION) :
     $name = $_SESSION['name'];
     $email = $_SESSION['email'];
