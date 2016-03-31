@@ -18,8 +18,8 @@ CREATE TABLE `users` (
 );
 CREATE TABLE `posts` (
 	`id_users` INT(11) NULL DEFAULT NULL,
-	`name_post` TEXT NOT NULL,
-	`content` TEXT NULL,
+	`name_post` VARCHAR(30) NOT NULL,
+	`content` VARCHAR(500) NULL,
 	`date_create` DATE NOT NULL,
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
 	PRIMARY KEY (`id`),
