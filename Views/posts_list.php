@@ -1,10 +1,6 @@
 <?php require('session.php');
 $email = trim($_REQUEST['email']);
-if (!$_SESSION): ?>
-    <script>
-        document.location.href = '403.html';
-    </script>
-<?php endif; ?>
+if ($_SESSION  OR ($_SESSION['email']== $email AND ( $_SESSION['level_role'] == "admin" OR  $_SESSION['level_role'] == "moderator" ))) : ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -134,3 +130,8 @@ $role = User::getById($_SESSION['id']);
 
 </body>
 </html>
+<?php else: ?>
+    <script>
+        document.location.href = '403.html';
+    </script>
+<?php endif; ?>
