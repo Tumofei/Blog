@@ -12,6 +12,7 @@ if (!$_SESSION ) : ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title> Посты пользователя </title>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap/css/view.css" rel="stylesheet">
     <style>
         .weight {
             width: 95%;
@@ -19,7 +20,7 @@ if (!$_SESSION ) : ?>
         }
 
         body {
-            background: url(../images/1.jpg)
+            background: url(../images/01.gif)
         }
     </style>
 </head>
@@ -36,12 +37,12 @@ $role = User::getById($_SESSION['id']);
 ?>
 <div class="container">
     <div class="row">
-        <div class="well col-lg-12"><p class="text-center text-success h3">Blog.dev</p></div>
+        <div class="well col-lg-12 back-img" ></br></br></br></br></div>
 
     </div>
 
     <div class="row">
-        <div class="well col-lg-3 col-lg-offset-0  ">
+        <div class="well col-lg-3 col-lg-offset-0 back-color  ">
 
             <div class="btn-group-vertical btn-block">
 

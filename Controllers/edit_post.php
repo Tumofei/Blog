@@ -15,7 +15,7 @@ $post->save();
 
 $js = User::getById($id_users);
 
-echo "Post edit";
+//echo "Post edit";
 ?>
 <script>
     document.location.href = '../Views/posts_list.php?email=<?=$js->email?>';

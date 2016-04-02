@@ -24,7 +24,7 @@ $error_name = trim($_REQUEST['error_name']);
                     <h3> Something went wrong, the error is: <?= $error_name ?> </h3>
                 </div>
                 <div class="error-actions">
-                    <a href="/index.html" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На
+                    <a href="/index.php" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На
                         главную </a>
                 </div>
             </div>

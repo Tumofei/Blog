@@ -17,7 +17,7 @@ if (!$_SESSION): ?>
     <link href="../bootstrap/css/view.css" rel="stylesheet">
     <style>
         body {
-            background: url(../images/1.jpg)
+            background: url(../images/01.gif)
         }
     </style>
 
@@ -28,12 +28,12 @@ if (!$_SESSION): ?>
 $post = Post::getById(trim($_REQUEST['id_post'])); ?>
 <div class="container">
     <div class="row">
-        <div class="well col-lg-12"><p class="text-center text-success h3">Blog.dev</p></div>
+        <div class="well col-lg-12 back-img" ></br></br></br></br></div>
 
     </div>
 
     <div class="row">
-        <div class="well col-lg-3 col-lg-offset-0">
+        <div class="well col-lg-3 col-lg-offset-0 back-color">
 
             <div class="btn-group-vertical btn-block">
 

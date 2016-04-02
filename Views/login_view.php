@@ -8,7 +8,7 @@
     <script type="text/javascript" src="../js/valida.2.1.6.js"></script>
     <style>
         body {
-            background: url(../images/1.jpg)
+            background: url(../images/01.gif)
         }
     </style>
 

@@ -10,6 +10,7 @@ if (!$_SESSION OR $_SESSION['role_id']!= 3): ?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title> Список привелегий </title>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap/css/view.css" rel="stylesheet">
     <style>
         .weight {
             width: 95%;
@@ -17,7 +18,7 @@ if (!$_SESSION OR $_SESSION['role_id']!= 3): ?>
         }
 
         body {
-            background: url(../images/1.jpg)
+            background: url(../images/01.gif)
         }
     </style>
 </head>
@@ -32,12 +33,12 @@ $arr_role = Role::getAll();
 ?>
 <div class="container">
     <div class="row">
-        <div class="well col-lg-12"><p class="text-center text-success h3">Blog.dev</p></div>
+        <div class="well col-lg-12 back-img" ></br></br></br></br></div>
 
     </div>
 
     <div class="row">
-        <div class="well col-lg-3 col-lg-offset-0  ">
+        <div class="well col-lg-3 col-lg-offset-0 back-color ">
 
             <div class="btn-group-vertical btn-block">
 

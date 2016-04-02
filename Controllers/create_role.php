@@ -14,7 +14,7 @@ $role = new Role();
 $role -> __set('name', $name_role);
 $role -> __set('level', $level);
 $role -> save();
-echo "Role added";
+//echo "Role added";
 ?>
 <script>
     document.location.href = '../Views/role_list.php';
