@@ -7,7 +7,7 @@
  * Time: 9:42
  */
 
-include_once('../Controllers/Connect.php');
+include_once('../Helpers/Connect.php');
 include_once('Table.php');
 
 class Post extends Table
