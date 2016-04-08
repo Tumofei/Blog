@@ -6,7 +6,7 @@
  * Date: 17.03.2016
  * Time: 10:00
  */
-include_once('../Controllers/Connect.php');
+include_once('../Helpers/Connect.php');
 include_once('Post.php');
 include_once('Table.php');
 include_once('Role.php');
