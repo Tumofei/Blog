@@ -1,15 +1,15 @@
-[bootstrap] - Шаблоны bootstrap
-[Controllers] - php-скрипты функционала
-[images] - картинки
-[js] - js-скрипты
-[Models] - классы
-[Views] - страницы вывода информации
-index.php - карта сайта
-error.php - страница ошибок
-[Configs]   db.sql Сreate-таблицы
-            local_params.php Данные базы данных
+[bootstrap] - РЁР°Р±Р»РѕРЅС‹ bootstrap
+[Controllers] - php-СЃРєСЂРёРїС‚С‹ С„СѓРЅРєС†РёРѕРЅР°Р»Р°
+[images] - РєР°СЂС‚РёРЅРєРё
+[js] - js-СЃРєСЂРёРїС‚С‹
+[Models] - РєР»Р°СЃСЃС‹
+[Views] - СЃС‚СЂР°РЅРёС†С‹ РІС‹РІРѕРґР° РёРЅС„РѕСЂРјР°С†РёРё
+index.php - РєР°СЂС‚Р° СЃР°Р№С‚Р°
+error.php - СЃС‚СЂР°РЅРёС†Р° РѕС€РёР±РѕРє
+[Configs]   db.sql РЎreate-С‚Р°Р±Р»РёС†С‹
+            local_params.php Р”Р°РЅРЅС‹Рµ Р±Р°Р·С‹ РґР°РЅРЅС‹С…
 
-Описание файла local_params.php
+РћРїРёСЃР°РЅРёРµ С„Р°Р№Р»Р° local_params.php
 <?php
 return [
     'hostname' => 'localhost',
