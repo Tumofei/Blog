@@ -56,21 +56,21 @@ $role = User::getById($_SESSION['id']);
         <div class="well col-lg-9">
             <?php switch ($role->getRole()->level) {
                 case 'admin': ?>
-                    <a href="create_post_view.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
+                    <a href="Post/create_post_view.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
                     <?php break;
 
                 case 'moderator':
                     if ($role->email == $email): ?>
-                        <a href="create_post_view.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
+                        <a href="Post/create_post_view.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
                     <?php endif;
                     break;
 
                 case 'user': ?>
-                    <a href="create_post_view.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
+                    <a href="Post/create_post_view.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
                     <?php break;
 
                 default: ?>
-                    <a href="create_post_view.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
+                    <a href="Post/create_post_view.php?id=<?= $user->id ?>" class="btn  btn-success">Добавить пост</a>
                     <?php break;
             }
             ?>
@@ -114,7 +114,7 @@ $role = User::getById($_SESSION['id']);
                                 <div class="btn-group-vertical btn-block">
                                     <a href="../Controllers/delete.php?who=post&id=<?= $posts->id ?>&id_users=<?= $posts->id_users ?>"
                                        class="btn btn-success btn-sm"> Удалить </a>
-                                    <a href="edit_post_view.php?id_users=<?= $posts->id_users; ?>&id_post=<?= $posts->id; ?>"
+                                    <a href="Post/edit_post_view.php?id_users=<?= $posts->id_users; ?>&id_post=<?= $posts->id; ?>"
                                        class="btn btn-success btn-sm"> Редактировать </a>
                                 </div>
                             </td>

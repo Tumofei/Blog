@@ -53,7 +53,7 @@ $arr_role = Role::getAll();
         <div class="well col-lg-9">
 
             <a href="/index.php" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> На главную </a>
-            <a href="../Views/create_role_view.php" class="btn  btn-success">Добавить роль</a>
+            <a href="Role/create_role_view.php" class="btn  btn-success">Добавить роль</a>
 
 
             <table class="table table-striped table-bordered table-hover table-condensed weight" style="table-layout: fixed;

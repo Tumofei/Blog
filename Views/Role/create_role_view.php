@@ -1,5 +1,5 @@
-<?php require('session.php');
-require('../Models/User.php');
+<?php require('../session.php');
+require('../../Models/User.php');
 /**
  * Created by PhpStorm.
  * User: Timofei
@@ -8,7 +8,7 @@ require('../Models/User.php');
  */
 if (!$_SESSION OR $_SESSION['role_id']!= 3): ?>
     <script>
-        document.location.href = '403.html';
+        document.location.href = '../403.html';
     </script>
 <?php endif; ?>
 
@@ -17,12 +17,12 @@ if (!$_SESSION OR $_SESSION['role_id']!= 3): ?>
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <title>Добавление роли</title>
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <script type="text/javascript" src="../js/valida.2.1.6.js"></script>
-    <link href="../bootstrap/css/view.css" rel="stylesheet">
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../../js/valida.2.1.6.js"></script>
+    <link href="../../bootstrap/css/view.css" rel="stylesheet">
     <style>
         body {
-            background: url(../images/01.gif)
+            background: url(../../images/01.gif)
         }
     </style>
 
@@ -41,9 +41,9 @@ if (!$_SESSION OR $_SESSION['role_id']!= 3): ?>
             <div class="btn-group-vertical btn-block">
 
 
-                <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
+                <a href="../user_list.php" class="btn  btn-success">Список всех пользователей</a>
                 <?php $role = User::getById($_SESSION['id']); ?>
-                <a href="posts_list.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
+                <a href="../posts_list.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
 
 
             </div>
@@ -55,7 +55,7 @@ if (!$_SESSION OR $_SESSION['role_id']!= 3): ?>
             <br/>
             <br/>
             <div class="form-group">
-                <form action="../Controllers/Role/create_role.php" class="valida" id="form" method="post" role="form">
+                <form action="../../Controllers/Role/create_role.php" class="valida" id="form" method="post" role="form">
                     <fieldset>
 
                         <div class="form-group">
@@ -82,8 +82,8 @@ if (!$_SESSION OR $_SESSION['role_id']!= 3): ?>
 
 
 
-<script type="text/javascript" src="../js/jquery-2.2.2.min.js"></script>
-<script type="text/javascript" src="../js/valida.2.1.6.js"></script>
-<script type="text/javascript" src="../js/validation.js"></script>
+<script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
+<script type="text/javascript" src="../../js/valida.2.1.6.js"></script>
+<script type="text/javascript" src="../../js/validation.js"></script>
 </body>
 </html>

@@ -1,9 +1,9 @@
-<?php require('session.php');
-include_once ('../Models/User.php');
+<?php require('../session.php');
+include_once('../../Models/User.php');
 $role = User::getById($_SESSION['id']);
 if (!$_SESSION): ?>
     <script>
-        document.location.href = '403.html';
+        document.location.href = '../403.html';
     </script>
 <?php endif; ?>
 
@@ -12,12 +12,12 @@ if (!$_SESSION): ?>
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <title>Добавление поста</title>
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <script type="text/javascript" src="../js/valida.2.1.6.js"></script>
-    <link href="../bootstrap/css/view.css" rel="stylesheet">
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../../js/valida.2.1.6.js"></script>
+    <link href="../../bootstrap/css/view.css" rel="stylesheet">
     <style>
         body {
-            background: url(../images/01.gif)
+            background: url(../../images/01.gif)
         }
     </style>
 
@@ -36,8 +36,8 @@ if (!$_SESSION): ?>
             <div class="btn-group-vertical btn-block">
 
 
-                <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
-                <a href="posts_list.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
+                <a href="../user_list.php" class="btn  btn-success">Список всех пользователей</a>
+                <a href="../posts_list.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
 
 
             </div>
@@ -49,7 +49,7 @@ if (!$_SESSION): ?>
             <br/>
             <br/>
             <div class="form-group">
-                <form action="../Controllers/Post/create_post.php" class="valida" id="form" method="post" role="form">
+                <form action="../../Controllers/Post/create_post.php" class="valida" id="form" method="post" role="form">
                     <fieldset>
                         <input type="hidden" name="id" value="<?= trim($_REQUEST['id']) ?>">
                         <label for="name">Название поста:</label><br/>
@@ -71,8 +71,8 @@ if (!$_SESSION): ?>
 
 
 
-<script type="text/javascript" src="../js/jquery-2.2.2.min.js"></script>
-<script type="text/javascript" src="../js/valida.2.1.6.js"></script>
-<script type="text/javascript" src="../js/validation.js"></script>
+<script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
+<script type="text/javascript" src="../../js/valida.2.1.6.js"></script>
+<script type="text/javascript" src="../../js/validation.js"></script>
 </body>
 </html>

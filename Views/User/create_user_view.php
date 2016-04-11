@@ -1,10 +1,10 @@
 <?php
-include_once('../Models/Role.php');
-include_once('../Models/User.php');
-include_once('session.php');
+include_once('../../Models/Role.php');
+include_once('../../Models/User.php');
+include_once('../session.php');
 if (!$_SESSION  OR $_SESSION['role_id']!= 3): ?>
     <script>
-        document.location.href = '403.html';
+        document.location.href = '../403.html';
     </script>
 <?php endif; ?>
 <!DOCTYPE html>
@@ -12,12 +12,12 @@ if (!$_SESSION  OR $_SESSION['role_id']!= 3): ?>
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <title>Добавление пользователя</title>
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../bootstrap/css/view.css" rel="stylesheet">
-    <script type="text/javascript" src="../js/valida.2.1.6.js"></script>
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../bootstrap/css/view.css" rel="stylesheet">
+    <script type="text/javascript" src="../../js/valida.2.1.6.js"></script>
     <style>
         body {
-            background: url(../images/01.gif)
+            background: url(../../images/01.gif)
         }
     </style>
 
@@ -36,9 +36,9 @@ if (!$_SESSION  OR $_SESSION['role_id']!= 3): ?>
             <div class="btn-group-vertical btn-block">
 
 
-                <a href="../Views/user_list.php" class="btn  btn-success">Список всех пользователей</a>
+                <a href="../user_list.php" class="btn  btn-success">Список всех пользователей</a>
                 <?php $role = User::getById($_SESSION['id']); ?>
-                <a href="posts_list.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
+                <a href="../posts_list.php?email=<?= $role->email ?>" class="btn  btn-success">Мои посты</a>
 
 
             </div>
@@ -104,9 +104,9 @@ if (!$_SESSION  OR $_SESSION['role_id']!= 3): ?>
 <!-- center page------------------->
 
 
-<script type="text/javascript" src="../js/jquery-2.2.2.min.js"></script>
-<script type="text/javascript" src="../js/valida.2.1.6.js"></script>
-<script type="text/javascript" src="../js/validation.js"></script>
-<script type="text/javascript" src="../js/create_user.js"></script>
+<script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
+<script type="text/javascript" src="../../js/valida.2.1.6.js"></script>
+<script type="text/javascript" src="../../js/validation.js"></script>
+<script type="text/javascript" src="../../js/create_user.js"></script>
 </body>
 </html>

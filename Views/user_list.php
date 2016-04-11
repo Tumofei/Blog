@@ -60,7 +60,7 @@ $user = User::getById($_SESSION['id']); ?>
             </a>
 
             <?php if ($user->getRole()->level == 'admin') : ?>
-                <a href="create_user_view.php" class="btn btn-success ">Добавление пользователя</a>
+                <a href="User/create_user_view.php" class="btn btn-success ">Добавление пользователя</a>
                 <a href="../Views/role_list.php" class="btn  btn-success">Список ролей пользователей</a>
 
             <?php endif; ?>
@@ -97,7 +97,7 @@ $user = User::getById($_SESSION['id']); ?>
                                                 <?php $arr_posts = $users->getUserPosts();
                                                 foreach ($arr_posts as $post) : ?>
                                                     <li>
-                                                        <a href="edit_post_view.php?id_users=<?= $post->id_users; ?>&id_post=<?= $post->id; ?>"><?= $post->name_post; ?></a>
+                                                        <a href="Post/edit_post_view.php?id_users=<?= $post->id_users; ?>&id_post=<?= $post->id; ?>"><?= $post->name_post; ?></a>
                                                     </li>
                                                 <?php endforeach; ?>
                                             </ul>

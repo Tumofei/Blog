@@ -24,7 +24,7 @@ switch ($who) {
         Post::delete($id);
         $email = User::getById($id_users);
         $em = $email->email;
-        header("Location: ../Views/user_posts.php?email=$em");
+        header("Location: ../Views/posts_list.php?email=$em");
         break;
     case "role":
         Role::delete($id);
