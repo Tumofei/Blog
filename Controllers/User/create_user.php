@@ -1,6 +1,6 @@
 <?php
 
-require('../Models/User.php');
+require('../../Models/User.php');
 
 $name = trim($_REQUEST['name']);
 $email = trim($_REQUEST['email']);

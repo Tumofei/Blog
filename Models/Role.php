@@ -1,5 +1,5 @@
 <?php
-include_once('../Helpers/Connect.php');
+include_once(__DIR__ .'/../Helpers/Connect.php');
 include_once('Table.php');
 
 /**

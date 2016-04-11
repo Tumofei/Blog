@@ -49,7 +49,7 @@ if (!$_SESSION): ?>
             <br/>
             <br/>
             <div class="form-group">
-                <form action="../Controllers/create_post.php" class="valida" id="form" method="post" role="form">
+                <form action="../Controllers/Post/create_post.php" class="valida" id="form" method="post" role="form">
                     <fieldset>
                         <input type="hidden" name="id" value="<?= trim($_REQUEST['id']) ?>">
                         <label for="name">Название поста:</label><br/>

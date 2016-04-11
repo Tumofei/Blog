@@ -1,6 +1,6 @@
 <?php
-include_once('../Models/Post.php');
-include_once('../Models/User.php');
+include_once('../../Models/Post.php');
+include_once('../../Models/User.php');
 
 $id_users = trim($_REQUEST['id_users']);
 $id = trim($_REQUEST['id_post']);
@@ -18,5 +18,5 @@ $js = User::getById($id_users);
 //echo "Post edit";
 ?>
 <script>
-    document.location.href = '../Views/posts_list.php?email=<?=$js->email?>';
+    document.location.href = '../../Views/posts_list.php?email=<?=$js->email?>';
 </script>

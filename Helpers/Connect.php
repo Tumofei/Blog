@@ -10,14 +10,13 @@ class Connect
 
     public function connect()
     {
-        $filename = '../Configs/local_params.php';
-        if (file_exists($filename)) :
-            $db = include('../Configs/local_params.php');
+        if (file_exists(__DIR__ . '/../Configs/local_params.php')) :
+            $db = include(__DIR__ . '/../Configs/local_params.php');
 
         else : ?>
 
             <script>
-                document.location.href = '../error.php?error_name=The file <?=$filename?> does not exist';
+                document.location.href = '../error.php?error_name=The file with local params does not exist';
             </script>
 
         <?php endif;

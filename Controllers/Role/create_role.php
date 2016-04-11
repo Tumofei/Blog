@@ -5,7 +5,7 @@
  * Date: 28.03.2016
  * Time: 22:59
  */
-include_once('../Models/Role.php');
+include_once('../../Models/Role.php');
 
 $name_role = trim($_REQUEST['name_role']);
 $level = trim($_REQUEST['level']);
@@ -17,5 +17,5 @@ $role -> save();
 //echo "Role added";
 ?>
 <script>
-    document.location.href = '../Views/role_list.php';
+    document.location.href = '../../Views/role_list.php';
 </script>

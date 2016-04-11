@@ -51,7 +51,7 @@ $post = Post::getById(trim($_REQUEST['id_post'])); ?>
             <br/>
             <br/>
             <div class="form-group">
-                <form action="../Controllers/edit_post.php" class="valida" id="form" method="post" role="form">
+                <form action="../Controllers/Post/edit_post.php" class="valida" id="form" method="post" role="form">
                     <fieldset>
                         <input type="hidden" name="id_users" value="<?= trim($_REQUEST['id_users']) ?>">
                         <input type="hidden" name="id_post" value="<?= trim($_REQUEST['id_post']) ?>">
